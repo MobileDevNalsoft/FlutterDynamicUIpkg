@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Entry/json_to_widget.dart';
 import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
-import 'package:flutter_dynamic_ui/src/Models/scaffold_parser.dart';
+import 'package:flutter_dynamic_ui/src/Widgets/Scaffold/dynamic_scaffold.dart';
 
-class DynamicScaffoldParser extends JsonToWidgetParser<ScaffoldParser> {
+class DynamicScaffoldParser extends JsonToWidgetParser<DynamicScaffold> {
   const DynamicScaffoldParser();
 
   @override
-  ScaffoldParser getModel(Map<String, dynamic> json) =>
-      ScaffoldParser.fromJson(json);
+  DynamicScaffold getModel(Map<String, dynamic> json) =>
+      DynamicScaffold.fromJson(json);
 
   @override
   String get type => WidgetType.scaffold.name;
 
   @override
-  Widget parse(BuildContext context, ScaffoldParser model) {
+  Widget parse(BuildContext context, DynamicScaffold model) {
     return Scaffold(
         key: model.key ? GlobalKey() : null,
         appBar:

@@ -2,12 +2,14 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_scaffold_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_sizedbox_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_text_parser.dart';
 import 'package:flutter_dynamic_ui/src/Registry/dynamic_widget_registry.dart';
 
 class JsonToWidget {
   static final _parsers = <JsonToWidgetParser>[
     const DynamicScaffoldParser(),
-    const DynamicSizedBoxParser()
+    const DynamicSizedBoxParser(),
+    const DynamicTextParser()
   ];
 
   static Future<void> initialize() async {

@@ -15,8 +15,9 @@ class _DynamicUIState extends State<DynamicUI> {
     const jsonData = '''
     {
       "type": "scaffold",
-      "child": {
-        "type": "sizedBox"
+      "body": {
+        "type": "text",
+        "text": "Hello World"
       }
     }
     ''';
