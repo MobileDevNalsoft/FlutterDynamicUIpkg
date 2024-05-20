@@ -16,8 +16,14 @@ class _DynamicUIState extends State<DynamicUI> {
     {
       "type": "scaffold",
       "body": {
-        "type": "text",
-        "text": "Hello World"
+        "type":"center",
+        "child":{
+          "type": "text",
+          "data": "Hello World",
+          "style":{
+            "fontWeight":"w800"
+          }
+        }
       }
     }
     ''';

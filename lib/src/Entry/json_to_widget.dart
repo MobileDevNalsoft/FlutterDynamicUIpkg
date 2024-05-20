@@ -1,15 +1,23 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_center_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_scaffold_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_sizedbox_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textButton_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_text_parser.dart';
 import 'package:flutter_dynamic_ui/src/Registry/dynamic_widget_registry.dart';
 
 class JsonToWidget {
+  Map<String, FocusNode>? focusNodes = {};
+  Map<String, dynamic>? functions = {};
+
+  JsonToWidget({this.focusNodes, this.functions});
+
   static final _parsers = <JsonToWidgetParser>[
     const DynamicScaffoldParser(),
     const DynamicSizedBoxParser(),
-    const DynamicTextParser()
+    const DynamicTextParser(),
+    const DynamicCenterParser()
   ];
 
   static Future<void> initialize() async {

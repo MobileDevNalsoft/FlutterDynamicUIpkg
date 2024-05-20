@@ -1,1 +1,1 @@
-enum WidgetType { scaffold, appBar, sizedBox, text }
+enum WidgetType { scaffold, appBar, sizedBox, text, center, textButton }

@@ -18,9 +18,9 @@ class DynamicSizedBoxParser extends JsonToWidgetParser<DynamicSizedBox> {
   Widget parse(BuildContext context, DynamicSizedBox model) {
     return SizedBox(
       key: model.key ? GlobalKey() : null,
-      child: JsonToWidget.fromJson(model.child, context),
       width: model.width,
       height: model.height,
+      child: JsonToWidget.fromJson(model.child, context),
     );
   }
 }

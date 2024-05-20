@@ -35,6 +35,5 @@ class DynamicTextSpan with _$DynamicTextSpan {
   }) = _DynamicTextSpan;
 
   factory DynamicTextSpan.fromJson(Map<String, dynamic> json) =>
-      _$Dynamic
-      TextSpanFromJson(json);
+      _$DynamicTextSpanFromJson(json);
 }

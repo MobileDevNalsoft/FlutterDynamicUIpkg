@@ -70,3 +70,29 @@ enum DynamicFloatingActionButtonLocation {
     }
   }
 }
+
+extension DynamicAlignment on String? {
+  Alignment? alignment() {
+    if (this?.isEmpty ?? true) return Alignment.center;
+
+    switch (this) {
+      case 'centerLeft':
+        return Alignment.centerLeft;
+      case 'centerRight':
+        return Alignment.centerRight;
+      case 'topCenter':
+        return Alignment.topCenter;
+      case 'topLeft':
+        return Alignment.topLeft;
+      case 'topRight':
+        return Alignment.topRight;
+      case 'bottomCenter':
+        return Alignment.bottomCenter;
+      case 'bottomLeft':
+        return Alignment.bottomLeft;
+      case 'bottomRight':
+        return Alignment.bottomRight;
+    }
+    return null;
+  }
+}

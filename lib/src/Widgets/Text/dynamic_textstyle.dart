@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
 import 'package:flutter_dynamic_ui/src/Utils/font_weight.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -36,56 +37,58 @@ class DynamicTextStyle with _$DynamicTextStyle {
   }
 }
 
-// extension DynamicTextStyleParser on DynamicTextStyle {
-//   TextStyle? parse(BuildContext context) {
-//     if (styleFromTheme != null) {
-//       switch (styleFromTheme) {
-//         case 'displayLarge':
-//           return Theme.of(context).textTheme.displayLarge;
-//         case 'displayMedium':
-//           return Theme.of(context).textTheme.displayMedium;
-//         case 'displaySmall':
-//           return Theme.of(context).textTheme.displaySmall;
-//         case 'headlineLarge':
-//           return Theme.of(context).textTheme.headlineLarge;
-//         case 'headlineMedium':
-//           return Theme.of(context).textTheme.headlineMedium;
-//         case 'headlineSmall':
-//           return Theme.of(context).textTheme.headlineSmall;
-//         case 'titleLarge':
-//           return Theme.of(context).textTheme.titleLarge;
-//         case 'titleMedium':
-//           return Theme.of(context).textTheme.titleMedium;
-//         case 'titleSmall':
-//           return Theme.of(context).textTheme.titleSmall;
-//         case 'bodyLarge':
-//           return Theme.of(context).textTheme.bodyLarge;
-//         case 'bodyMedium':
-//           return Theme.of(context).textTheme.bodyMedium;
-//         case 'bodySmall':
-//           return Theme.of(context).textTheme.bodySmall;
-//         case 'labelLarge':
-//           return Theme.of(context).textTheme.labelLarge;
-//         case 'labelMedium':
-//           return Theme.of(context).textTheme.labelMedium;
-//         case 'labelSmall':
-//           return Theme.of(context).textTheme.labelSmall;
-//       }
-//     }
+extension DynamicTextStyleParser on DynamicTextStyle {
+  TextStyle? parse(BuildContext context) {
+    if (styleFromTheme != null) {
+      switch (styleFromTheme) {
+        case 'displayLarge':
+          return Theme.of(context).textTheme.displayLarge;
+        case 'displayMedium':
+          return Theme.of(context).textTheme.displayMedium;
+        case 'displaySmall':
+          return Theme.of(context).textTheme.displaySmall;
+        case 'headlineLarge':
+          return Theme.of(context).textTheme.headlineLarge;
+        case 'headlineMedium':
+          return Theme.of(context).textTheme.headlineMedium;
+        case 'headlineSmall':
+          return Theme.of(context).textTheme.headlineSmall;
+        case 'titleLarge':
+          return Theme.of(context).textTheme.titleLarge;
+        case 'titleMedium':
+          return Theme.of(context).textTheme.titleMedium;
+        case 'titleSmall':
+          return Theme.of(context).textTheme.titleSmall;
+        case 'bodyLarge':
+          return Theme.of(context).textTheme.bodyLarge;
+        case 'bodyMedium':
+          return Theme.of(context).textTheme.bodyMedium;
+        case 'bodySmall':
+          return Theme.of(context).textTheme.bodySmall;
+        case 'labelLarge':
+          return Theme.of(context).textTheme.labelLarge;
+        case 'labelMedium':
+          return Theme.of(context).textTheme.labelMedium;
+        case 'labelSmall':
+          return Theme.of(context).textTheme.labelSmall;
+      }
+    }
 
-//     return TextStyle(
-//       inherit: inherit,
-//       color: color?.toColor(context),
-//       backgroundColor: backgroundColor.toColor(context),
-//       fontSize: fontSize,
-//       fontWeight: fontWeight?.value,
-//       fontStyle: fontStyle,
-//       fontFamily: fontFamily,
-//       fontFamilyFallback: fontFamilyFallback,
-//       letterSpacing: letterSpacing,
-//       wordSpacing: wordSpacing,
-//       textBaseline: textBaseline,
-//       height: height,
-//     );
-//   }
-// }
+    return TextStyle(
+      inherit: inherit,
+      color: color != null
+          ? Color(int.parse(color!.substring(1, 7), radix: 16) + 0xFF000000)
+          : Colors.black,
+      backgroundColor: backgroundColor.toColor(context),
+      fontSize: fontSize,
+      fontWeight: fontWeight?.value,
+      fontStyle: fontStyle,
+      fontFamily: fontFamily,
+      fontFamilyFallback: fontFamilyFallback,
+      letterSpacing: letterSpacing,
+      wordSpacing: wordSpacing,
+      textBaseline: textBaseline,
+      height: height,
+    );
+  }
+}

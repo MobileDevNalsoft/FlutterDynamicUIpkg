@@ -322,20 +322,22 @@ class _$DynamicTextImpl implements _DynamicText {
             (identical(other.data, data) || other.data == data) &&
             const DeepCollectionEquality().equals(other._children, _children) &&
             (identical(other.style, style) || other.style == style) &&
-            const DeepCollectionEquality().equals(other.textAlign, textAlign) &&
-            const DeepCollectionEquality()
-                .equals(other.textDirection, textDirection) &&
+            (identical(other.textAlign, textAlign) ||
+                other.textAlign == textAlign) &&
+            (identical(other.textDirection, textDirection) ||
+                other.textDirection == textDirection) &&
             (identical(other.softWrap, softWrap) ||
                 other.softWrap == softWrap) &&
-            const DeepCollectionEquality().equals(other.overflow, overflow) &&
+            (identical(other.overflow, overflow) ||
+                other.overflow == overflow) &&
             (identical(other.textScaleFactor, textScaleFactor) ||
                 other.textScaleFactor == textScaleFactor) &&
             (identical(other.maxLines, maxLines) ||
                 other.maxLines == maxLines) &&
             (identical(other.semanticsLabel, semanticsLabel) ||
                 other.semanticsLabel == semanticsLabel) &&
-            const DeepCollectionEquality()
-                .equals(other.textWidthBasis, textWidthBasis) &&
+            (identical(other.textWidthBasis, textWidthBasis) ||
+                other.textWidthBasis == textWidthBasis) &&
             (identical(other.selectionColor, selectionColor) ||
                 other.selectionColor == selectionColor));
   }
@@ -347,14 +349,14 @@ class _$DynamicTextImpl implements _DynamicText {
       data,
       const DeepCollectionEquality().hash(_children),
       style,
-      const DeepCollectionEquality().hash(textAlign),
-      const DeepCollectionEquality().hash(textDirection),
+      textAlign,
+      textDirection,
       softWrap,
-      const DeepCollectionEquality().hash(overflow),
+      overflow,
       textScaleFactor,
       maxLines,
       semanticsLabel,
-      const DeepCollectionEquality().hash(textWidthBasis),
+      textWidthBasis,
       selectionColor);
 
   @JsonKey(ignore: true)
