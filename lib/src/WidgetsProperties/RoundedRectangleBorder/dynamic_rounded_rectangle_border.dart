@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dynamic_ui/src/Widgets/Button/dynamic_border_radius.dart';
-import 'package:flutter_dynamic_ui/src/Widgets/Button/dynamic_border_side.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/BorderSide/dynamic_border_side.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/BorderRadius/dynamic_borderRadius.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dynamic_rounded_rectangle_border.freezed.dart';

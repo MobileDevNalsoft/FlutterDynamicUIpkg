@@ -15,7 +15,8 @@ class DynamicCenterParser extends JsonToWidgetParser<DynamicCenter> {
   String get type => WidgetType.center.name;
 
   @override
-  Widget parse(BuildContext context, DynamicCenter model) {
+  Widget parse(BuildContext context, DynamicCenter model,
+      [Map<String, void Function()?>? functions]) {
     return Center(
       widthFactor: model.widthFactor,
       heightFactor: model.heightFactor,

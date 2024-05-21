@@ -3,12 +3,10 @@ import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Entry/json_to_widget.dart';
 import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
 import 'package:flutter_dynamic_ui/src/Widgets/Button/dynamic_button.dart';
-import 'package:flutter_dynamic_ui/src/Widgets/Button/dynamic_buttonStyle.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/ButtonStyle/dynamic_buttonStyle.dart';
 
 class DynamicTextButtonParser extends JsonToWidgetParser<DynamicButton> {
-  Map<String, dynamic>? functions;
-
-  DynamicTextButtonParser({this.functions});
+  const DynamicTextButtonParser();
 
   @override
   DynamicButton getModel(Map<String, dynamic> json) =>
@@ -21,7 +19,7 @@ class DynamicTextButtonParser extends JsonToWidgetParser<DynamicButton> {
   Widget parse(BuildContext context, DynamicButton model) {
     return TextButton(
         key: model.key ? GlobalKey() : null,
-        onPressed: functions?[model.onPressed] ?? () {},
+        onPressed: () {},
         style: model.style?.parseText(context),
         child: JsonToWidget.fromJson(model.child, context) ??
             const Text('No Text Passed'));

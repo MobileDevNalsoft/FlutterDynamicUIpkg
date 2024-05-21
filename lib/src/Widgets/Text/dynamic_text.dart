@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_dynamic_ui/src/Widgets/Text/dynamic_textstyle.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/TextStyle/dynamic_textstyle.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dynamic_text.freezed.dart';

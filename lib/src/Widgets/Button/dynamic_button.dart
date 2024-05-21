@@ -1,4 +1,4 @@
-import 'package:flutter_dynamic_ui/src/Widgets/Button/dynamic_buttonStyle.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/ButtonStyle/dynamic_buttonStyle.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dynamic_button.freezed.dart';

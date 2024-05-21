@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'dynamic_border_radius.freezed.dart';
-part 'dynamic_border_radius.g.dart';
+part 'dynamic_borderRadius.freezed.dart';
+part 'dynamic_borderRadius.g.dart';
 
 @freezed
 class DynamicBorderRadius with _$DynamicBorderRadius {

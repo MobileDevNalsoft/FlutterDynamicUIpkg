@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
-import 'package:flutter_dynamic_ui/src/Utils/font_weight.dart';
+import 'package:flutter_dynamic_ui/src/Utils/font_weight_utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dynamic_textstyle.freezed.dart';

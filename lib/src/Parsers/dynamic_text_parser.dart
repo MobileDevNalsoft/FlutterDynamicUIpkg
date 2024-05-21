@@ -4,7 +4,7 @@ import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
 import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
 import 'package:flutter_dynamic_ui/src/Widgets/Text/dynamic_text.dart';
-import 'package:flutter_dynamic_ui/src/Widgets/Text/dynamic_textstyle.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/TextStyle/dynamic_textstyle.dart';
 
 class DynamicTextParser extends JsonToWidgetParser<DynamicText> {
   const DynamicTextParser();
@@ -16,7 +16,8 @@ class DynamicTextParser extends JsonToWidgetParser<DynamicText> {
   String get type => WidgetType.text.name;
 
   @override
-  Widget parse(BuildContext context, DynamicText model) {
+  Widget parse(BuildContext context, DynamicText model,
+      [Map<String, void Function()?>? functions]) {
     return Text.rich(
       TextSpan(
         text: model.data,

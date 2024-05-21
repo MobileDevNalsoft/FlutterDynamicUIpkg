@@ -1,30 +1,50 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_appbar_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_center_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_column_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_container_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_iconButton_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_padding_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textFormField_parser.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/BorderSide/dynamic_elevatedButton_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_icon_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_positioned_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_row_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_scaffold_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_sizedbox_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_stack_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textButton_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textField_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_text_parser.dart';
 import 'package:flutter_dynamic_ui/src/Registry/dynamic_widget_registry.dart';
 
 class JsonToWidget {
-  Map<String, FocusNode>? focusNodes = {};
-  Map<String, dynamic>? functions = {};
-
-  JsonToWidget({this.focusNodes, this.functions});
-
   static final _parsers = <JsonToWidgetParser>[
     const DynamicScaffoldParser(),
     const DynamicSizedBoxParser(),
     const DynamicTextParser(),
-    const DynamicCenterParser()
+    const DynamicCenterParser(),
+    const DynamicTextButtonParser(),
+    const DynamicContainerParser(),
+    const DynamicTextFieldParser(),
+    const DynamicElevatedButtonParser(),
+    const DynamicIconParser(),
+    const DynamicRowParser(),
+    const DynamicColumnParser(),
+    const DynamicStackParser(),
+    const DynamicPositionedParser(),
+    const DynamicIconButtonParser(),
+    const DynamicTextFormFieldParser(),
+    const DynamicAppBarParser(),
+    const DynamicPaddingParser()
   ];
 
   static Future<void> initialize() async {
     DynamicWidgetRegistry.instance.registerAll(_parsers);
   }
 
-  static Widget? fromJson(Map<String, dynamic>? json, BuildContext context) {
+  static Widget? fromJson(Map<String, dynamic>? json, context) {
     try {
       if (json != null) {
         String widgetType = json['type'];

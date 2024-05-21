@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dynamic_ui/src/Widgets/Button/dynamic_border_side.dart';
-import 'package:flutter_dynamic_ui/src/Widgets/Button/dynamic_rounded_rectangle_border.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/BorderSide/dynamic_border_side.dart';
+import 'package:flutter_dynamic_ui/src/WidgetsProperties/RoundedRectangleBorder/dynamic_rounded_rectangle_border.dart';
 import 'package:flutter_dynamic_ui/src/Utils/button_utils.dart';
 import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
 import 'package:flutter_dynamic_ui/src/WidgetsProperties/EdgeInsets/dynamic_edgeInsets.dart';
