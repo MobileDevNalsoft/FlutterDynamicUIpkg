@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Entry/json_to_widget.dart';
-import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
+import 'package:flutter_dynamic_ui/src/Utils/widgetType_utils.dart';
 import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
 import 'package:flutter_dynamic_ui/src/Widgets/Scaffold/dynamic_scaffold.dart';
 

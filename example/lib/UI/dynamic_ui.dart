@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'package:example/Provider/ui_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 class DynamicUI extends StatefulWidget {
   const DynamicUI({super.key});
@@ -10,60 +13,47 @@ class DynamicUI extends StatefulWidget {
 }
 
 class _DynamicUIState extends State<DynamicUI> {
+  Map<String, dynamic>? data;
+  Map<String, dynamic>? json;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+  Future<void> getData() async {
+    await FirebaseFirestore.instance
+        .collection('dynamic')
+        .doc('jsonUI')
+        .get()
+        .then((value) {
+      data = value.data();
+      json = data!['Screens']['Screen1'];
+      Provider.of<UIProvider>(context, listen: false).setIsLoading(false);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    const jsonData = '''
-    {
-      "type": "scaffold",
-      "backgroundColor":"#cfd8dc",
-      "appBar":{
-        "type":"appBar",
-        "title":{
-          "type":"text",
-          "data":"Server Driven UI"
-        },
-        "fontSize":"18",
-        "centerTitle":true,
-        "backgroundColor":"#78909c",
-        "leading":{
-          "type":"icon",
-          "icon":"arrow_back_ios",
-          "iconType":"material"
-        },
-        "actions":[
-          {
-            "type":"padding",
-            "padding":{
-              "right":10
-            },
-            "child":{
-              "type":"icon",
-              "icon":"power_settings_new_rounded",
-              "iconType":"material"
-            }
-          }
-        ]
+    Map<String, void Function()> functions = {
+      "homescreenbackButtonFunction": () {
+        print('page popped');
       },
-      "body": {
-        "type":"center",
-        "child": {
-          "type":"textButton",
-          "child":{
-          "type": "text",
-          "data": "Hello World",
-          "style":{
-            "fontWeight":"w800"
-          },
-          "onPressed":"textButtonFunction"
-        }
-        }
+      "homescreenlogoutButtonFunction": () {
+        print('log out');
       }
-    }
-    ''';
+    };
 
-    final dynamic parsedJson = jsonDecode(jsonData);
-    final Widget? widget = JsonToWidget.fromJson(parsedJson, context);
-
-    return SafeArea(child: widget!);
+    return SafeArea(
+        child: Provider.of<UIProvider>(context, listen: true).isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : Scaffold(
+                appBar:
+                    JsonToWidget.fromJson(json!['appBar'], context, functions)
+                        .toPreferredSizeWidget,
+                body: Column(),
+              ));
   }
 }

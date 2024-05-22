@@ -20,7 +20,7 @@ class DynamicIconButton with _$DynamicIconButton {
     String? highlightColor,
     String? splashColor,
     String? disabledColor,
-    Map<String, dynamic>? onPressed,
+    String? onPressed,
     @Default(false) bool autofocus,
     String? tooltip,
     bool? enableFeedback,

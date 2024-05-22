@@ -16,5 +16,13 @@ enum WidgetType {
   positioned,
   iconButton,
   textFormField,
-  padding
+  padding,
+  listTile,
+  listView,
+  card,
+  singleChildScrollView,
+  alertDialog,
+  expanded,
+  align,
+  gridView
 }

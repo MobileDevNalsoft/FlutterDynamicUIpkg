@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Entry/json_to_widget.dart';
-import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
+import 'package:flutter_dynamic_ui/src/Utils/widgetType_utils.dart';
 import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
 import 'package:flutter_dynamic_ui/src/WidgetsProperties/ButtonStyle/dynamic_buttonStyle.dart';
 import 'package:flutter_dynamic_ui/src/Widgets/IconButton/dynamic_iconButton.dart';
@@ -19,7 +19,8 @@ class DynamicIconButtonParser extends JsonToWidgetParser<DynamicIconButton> {
       DynamicIconButton.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicIconButton model) {
+  Widget parseWithFunctions(BuildContext context, DynamicIconButton model,
+      Map<String, void Function()> functions) {
     return IconButton(
       iconSize: model.iconSize,
       padding: model.padding.parse,
@@ -31,7 +32,9 @@ class DynamicIconButtonParser extends JsonToWidgetParser<DynamicIconButton> {
       highlightColor: model.highlightColor.toColor(context),
       splashColor: model.splashColor.toColor(context),
       disabledColor: model.disabledColor.toColor(context),
-      onPressed: () {},
+      onPressed: () {
+        functions[model.onPressed]!();
+      },
       autofocus: model.autofocus,
       tooltip: model.tooltip,
       enableFeedback: model.enableFeedback,

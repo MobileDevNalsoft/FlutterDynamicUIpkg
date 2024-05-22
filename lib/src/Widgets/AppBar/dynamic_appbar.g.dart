@@ -35,6 +35,10 @@ _$DynamicAppBarImpl _$$DynamicAppBarImplFromJson(Map<String, dynamic> json) =>
       elevation: (json['elevation'] as num?)?.toDouble(),
       scrolledUnderElevation:
           (json['scrolledUnderElevation'] as num?)?.toDouble(),
+      continuousRectangleBorder: json['continuousRectangleBorder'] == null
+          ? null
+          : DynamicContinuousRectangleBorder.fromJson(
+              json['continuousRectangleBorder'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$DynamicAppBarImplToJson(_$DynamicAppBarImpl instance) =>
@@ -58,4 +62,5 @@ Map<String, dynamic> _$$DynamicAppBarImplToJson(_$DynamicAppBarImpl instance) =>
       'centerTitle': instance.centerTitle,
       'elevation': instance.elevation,
       'scrolledUnderElevation': instance.scrolledUnderElevation,
+      'continuousRectangleBorder': instance.continuousRectangleBorder,
     };

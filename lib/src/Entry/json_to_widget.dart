@@ -1,13 +1,17 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_alertDialogParser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_appbar_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_center_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_column_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_container_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_iconButton_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_listTile_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_listView_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_padding_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_singleChildScrollView_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textFormField_parser.dart';
-import 'package:flutter_dynamic_ui/src/WidgetsProperties/BorderSide/dynamic_elevatedButton_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_elevatedButton_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_icon_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_positioned_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_row_parser.dart';
@@ -37,14 +41,19 @@ class JsonToWidget {
     const DynamicIconButtonParser(),
     const DynamicTextFormFieldParser(),
     const DynamicAppBarParser(),
-    const DynamicPaddingParser()
+    const DynamicPaddingParser(),
+    const DynamicListTileParser(),
+    const DynamicListViewParser(),
+    const DynamicSingleChildScrollViewParser(),
+    const DynamicAlertDialogParser()
   ];
 
   static Future<void> initialize() async {
     DynamicWidgetRegistry.instance.registerAll(_parsers);
   }
 
-  static Widget? fromJson(Map<String, dynamic>? json, context) {
+  static Widget? fromJson(Map<String, dynamic>? json, context,
+      [Map<String, void Function()>? functions]) {
     try {
       if (json != null) {
         String widgetType = json['type'];
@@ -52,7 +61,9 @@ class JsonToWidget {
             DynamicWidgetRegistry.instance.getParser(widgetType);
         if (widgetParser != null) {
           final model = widgetParser.getModel(json);
-          return widgetParser.parse(context, model);
+          return functions == null
+              ? widgetParser.parse(context, model)
+              : widgetParser.parseWithFunctions(context, model, functions);
         } else {
           print('Widget $widgetType not supported');
         }

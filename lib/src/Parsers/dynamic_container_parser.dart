@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dynamic_ui/src.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
-import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
+import 'package:flutter_dynamic_ui/src/Utils/widgetType_utils.dart';
 import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
 import 'package:flutter_dynamic_ui/src/Widgets/Container/dynamic_container.dart';
 import 'package:flutter_dynamic_ui/src/WidgetsProperties/BoxContraints/dynamic_boxConstraints.dart';

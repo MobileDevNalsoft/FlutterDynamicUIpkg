@@ -39,6 +39,8 @@ mixin _$DynamicAppBar {
   bool? get centerTitle => throw _privateConstructorUsedError;
   double? get elevation => throw _privateConstructorUsedError;
   double? get scrolledUnderElevation => throw _privateConstructorUsedError;
+  DynamicContinuousRectangleBorder? get continuousRectangleBorder =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,10 +73,13 @@ abstract class $DynamicAppBarCopyWith<$Res> {
       bool primary,
       bool? centerTitle,
       double? elevation,
-      double? scrolledUnderElevation});
+      double? scrolledUnderElevation,
+      DynamicContinuousRectangleBorder? continuousRectangleBorder});
 
   $DynamicTextStyleCopyWith<$Res>? get titleTextStyle;
   $DynamicTextStyleCopyWith<$Res>? get toolbarTextStyle;
+  $DynamicContinuousRectangleBorderCopyWith<$Res>?
+      get continuousRectangleBorder;
 }
 
 /// @nodoc
@@ -109,6 +114,7 @@ class _$DynamicAppBarCopyWithImpl<$Res, $Val extends DynamicAppBar>
     Object? centerTitle = freezed,
     Object? elevation = freezed,
     Object? scrolledUnderElevation = freezed,
+    Object? continuousRectangleBorder = freezed,
   }) {
     return _then(_value.copyWith(
       leading: freezed == leading
@@ -187,6 +193,10 @@ class _$DynamicAppBarCopyWithImpl<$Res, $Val extends DynamicAppBar>
           ? _value.scrolledUnderElevation
           : scrolledUnderElevation // ignore: cast_nullable_to_non_nullable
               as double?,
+      continuousRectangleBorder: freezed == continuousRectangleBorder
+          ? _value.continuousRectangleBorder
+          : continuousRectangleBorder // ignore: cast_nullable_to_non_nullable
+              as DynamicContinuousRectangleBorder?,
     ) as $Val);
   }
 
@@ -211,6 +221,20 @@ class _$DynamicAppBarCopyWithImpl<$Res, $Val extends DynamicAppBar>
 
     return $DynamicTextStyleCopyWith<$Res>(_value.toolbarTextStyle!, (value) {
       return _then(_value.copyWith(toolbarTextStyle: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DynamicContinuousRectangleBorderCopyWith<$Res>?
+      get continuousRectangleBorder {
+    if (_value.continuousRectangleBorder == null) {
+      return null;
+    }
+
+    return $DynamicContinuousRectangleBorderCopyWith<$Res>(
+        _value.continuousRectangleBorder!, (value) {
+      return _then(_value.copyWith(continuousRectangleBorder: value) as $Val);
     });
   }
 }
@@ -242,12 +266,16 @@ abstract class _$$DynamicAppBarImplCopyWith<$Res>
       bool primary,
       bool? centerTitle,
       double? elevation,
-      double? scrolledUnderElevation});
+      double? scrolledUnderElevation,
+      DynamicContinuousRectangleBorder? continuousRectangleBorder});
 
   @override
   $DynamicTextStyleCopyWith<$Res>? get titleTextStyle;
   @override
   $DynamicTextStyleCopyWith<$Res>? get toolbarTextStyle;
+  @override
+  $DynamicContinuousRectangleBorderCopyWith<$Res>?
+      get continuousRectangleBorder;
 }
 
 /// @nodoc
@@ -280,6 +308,7 @@ class __$$DynamicAppBarImplCopyWithImpl<$Res>
     Object? centerTitle = freezed,
     Object? elevation = freezed,
     Object? scrolledUnderElevation = freezed,
+    Object? continuousRectangleBorder = freezed,
   }) {
     return _then(_$DynamicAppBarImpl(
       leading: freezed == leading
@@ -358,6 +387,10 @@ class __$$DynamicAppBarImplCopyWithImpl<$Res>
           ? _value.scrolledUnderElevation
           : scrolledUnderElevation // ignore: cast_nullable_to_non_nullable
               as double?,
+      continuousRectangleBorder: freezed == continuousRectangleBorder
+          ? _value.continuousRectangleBorder
+          : continuousRectangleBorder // ignore: cast_nullable_to_non_nullable
+              as DynamicContinuousRectangleBorder?,
     ));
   }
 }
@@ -384,7 +417,8 @@ class _$DynamicAppBarImpl implements _DynamicAppBar {
       this.primary = true,
       this.centerTitle,
       this.elevation,
-      this.scrolledUnderElevation})
+      this.scrolledUnderElevation,
+      this.continuousRectangleBorder})
       : _leading = leading,
         _title = title,
         _actions = actions,
@@ -465,10 +499,12 @@ class _$DynamicAppBarImpl implements _DynamicAppBar {
   final double? elevation;
   @override
   final double? scrolledUnderElevation;
+  @override
+  final DynamicContinuousRectangleBorder? continuousRectangleBorder;
 
   @override
   String toString() {
-    return 'DynamicAppBar(leading: $leading, title: $title, titleTextStyle: $titleTextStyle, toolbarTextStyle: $toolbarTextStyle, shadowColor: $shadowColor, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, surfaceTintColor: $surfaceTintColor, actions: $actions, bottom: $bottom, titleSpacing: $titleSpacing, toolbarOpacity: $toolbarOpacity, bottomOpacity: $bottomOpacity, toolbarHeight: $toolbarHeight, leadingWidth: $leadingWidth, primary: $primary, centerTitle: $centerTitle, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation)';
+    return 'DynamicAppBar(leading: $leading, title: $title, titleTextStyle: $titleTextStyle, toolbarTextStyle: $toolbarTextStyle, shadowColor: $shadowColor, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, surfaceTintColor: $surfaceTintColor, actions: $actions, bottom: $bottom, titleSpacing: $titleSpacing, toolbarOpacity: $toolbarOpacity, bottomOpacity: $bottomOpacity, toolbarHeight: $toolbarHeight, leadingWidth: $leadingWidth, primary: $primary, centerTitle: $centerTitle, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation, continuousRectangleBorder: $continuousRectangleBorder)';
   }
 
   @override
@@ -508,7 +544,10 @@ class _$DynamicAppBarImpl implements _DynamicAppBar {
             (identical(other.elevation, elevation) ||
                 other.elevation == elevation) &&
             (identical(other.scrolledUnderElevation, scrolledUnderElevation) ||
-                other.scrolledUnderElevation == scrolledUnderElevation));
+                other.scrolledUnderElevation == scrolledUnderElevation) &&
+            (identical(other.continuousRectangleBorder,
+                    continuousRectangleBorder) ||
+                other.continuousRectangleBorder == continuousRectangleBorder));
   }
 
   @JsonKey(ignore: true)
@@ -533,7 +572,8 @@ class _$DynamicAppBarImpl implements _DynamicAppBar {
         primary,
         centerTitle,
         elevation,
-        scrolledUnderElevation
+        scrolledUnderElevation,
+        continuousRectangleBorder
       ]);
 
   @JsonKey(ignore: true)
@@ -552,25 +592,27 @@ class _$DynamicAppBarImpl implements _DynamicAppBar {
 
 abstract class _DynamicAppBar implements DynamicAppBar {
   const factory _DynamicAppBar(
-      {final Map<String, dynamic>? leading,
-      final Map<String, dynamic>? title,
-      final DynamicTextStyle? titleTextStyle,
-      final DynamicTextStyle? toolbarTextStyle,
-      final String? shadowColor,
-      final String? backgroundColor,
-      final String? foregroundColor,
-      final String? surfaceTintColor,
-      final List<Map<String, dynamic>> actions,
-      final Map<String, dynamic>? bottom,
-      final double? titleSpacing,
-      final double toolbarOpacity,
-      final double bottomOpacity,
-      final double? toolbarHeight,
-      final double? leadingWidth,
-      final bool primary,
-      final bool? centerTitle,
-      final double? elevation,
-      final double? scrolledUnderElevation}) = _$DynamicAppBarImpl;
+          {final Map<String, dynamic>? leading,
+          final Map<String, dynamic>? title,
+          final DynamicTextStyle? titleTextStyle,
+          final DynamicTextStyle? toolbarTextStyle,
+          final String? shadowColor,
+          final String? backgroundColor,
+          final String? foregroundColor,
+          final String? surfaceTintColor,
+          final List<Map<String, dynamic>> actions,
+          final Map<String, dynamic>? bottom,
+          final double? titleSpacing,
+          final double toolbarOpacity,
+          final double bottomOpacity,
+          final double? toolbarHeight,
+          final double? leadingWidth,
+          final bool primary,
+          final bool? centerTitle,
+          final double? elevation,
+          final double? scrolledUnderElevation,
+          final DynamicContinuousRectangleBorder? continuousRectangleBorder}) =
+      _$DynamicAppBarImpl;
 
   factory _DynamicAppBar.fromJson(Map<String, dynamic> json) =
       _$DynamicAppBarImpl.fromJson;
@@ -613,6 +655,8 @@ abstract class _DynamicAppBar implements DynamicAppBar {
   double? get elevation;
   @override
   double? get scrolledUnderElevation;
+  @override
+  DynamicContinuousRectangleBorder? get continuousRectangleBorder;
   @override
   @JsonKey(ignore: true)
   _$$DynamicAppBarImplCopyWith<_$DynamicAppBarImpl> get copyWith =>

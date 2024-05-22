@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
-import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
+import 'package:flutter_dynamic_ui/src/Utils/widgetType_utils.dart';
 import 'package:flutter_dynamic_ui/src/Widgets/Row/dynamic_row.dart';
 
 class DynamicRowParser extends JsonToWidgetParser<DynamicRow> {

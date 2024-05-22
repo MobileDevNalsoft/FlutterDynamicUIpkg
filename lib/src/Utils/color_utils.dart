@@ -1,5 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dynamic_ui/src/Enums/color_type.dart';
+
+enum ColorType {
+  primary,
+  onPrimary,
+  primaryContainer,
+  onPrimaryContainer,
+  secondary,
+  onSecondary,
+  secondaryContainer,
+  onSecondaryContainer,
+  tertiary,
+  onTertiary,
+  tertiaryContainer,
+  onTertiaryContainer,
+  error,
+  onError,
+  errorContainer,
+  onErrorContainer,
+  background,
+  onBackground,
+  surface,
+  onSurface,
+  surfaceVariant,
+  onSurfaceVariant,
+  outline,
+  outlineVariant,
+  shadow,
+  scrim,
+  inverseSurface,
+  onInverseSurface,
+  inversePrimary,
+  surfaceTint,
+  scaffoldBackgroundColor,
+  none,
+}
 
 extension ColorExt on String? {
   Color? toColor(BuildContext context) {

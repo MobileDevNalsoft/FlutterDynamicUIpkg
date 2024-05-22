@@ -30,7 +30,7 @@ mixin _$DynamicIconButton {
   String? get highlightColor => throw _privateConstructorUsedError;
   String? get splashColor => throw _privateConstructorUsedError;
   String? get disabledColor => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get onPressed => throw _privateConstructorUsedError;
+  String? get onPressed => throw _privateConstructorUsedError;
   bool get autofocus => throw _privateConstructorUsedError;
   String? get tooltip => throw _privateConstructorUsedError;
   bool? get enableFeedback => throw _privateConstructorUsedError;
@@ -63,7 +63,7 @@ abstract class $DynamicIconButtonCopyWith<$Res> {
       String? highlightColor,
       String? splashColor,
       String? disabledColor,
-      Map<String, dynamic>? onPressed,
+      String? onPressed,
       bool autofocus,
       String? tooltip,
       bool? enableFeedback,
@@ -155,7 +155,7 @@ class _$DynamicIconButtonCopyWithImpl<$Res, $Val extends DynamicIconButton>
       onPressed: freezed == onPressed
           ? _value.onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       autofocus: null == autofocus
           ? _value.autofocus
           : autofocus // ignore: cast_nullable_to_non_nullable
@@ -247,7 +247,7 @@ abstract class _$$DynamicIconButtonImplCopyWith<$Res>
       String? highlightColor,
       String? splashColor,
       String? disabledColor,
-      Map<String, dynamic>? onPressed,
+      String? onPressed,
       bool autofocus,
       String? tooltip,
       bool? enableFeedback,
@@ -338,9 +338,9 @@ class __$$DynamicIconButtonImplCopyWithImpl<$Res>
           : disabledColor // ignore: cast_nullable_to_non_nullable
               as String?,
       onPressed: freezed == onPressed
-          ? _value._onPressed
+          ? _value.onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       autofocus: null == autofocus
           ? _value.autofocus
           : autofocus // ignore: cast_nullable_to_non_nullable
@@ -391,7 +391,7 @@ class _$DynamicIconButtonImpl implements _DynamicIconButton {
       this.highlightColor,
       this.splashColor,
       this.disabledColor,
-      final Map<String, dynamic>? onPressed,
+      this.onPressed,
       this.autofocus = false,
       this.tooltip,
       this.enableFeedback,
@@ -400,8 +400,7 @@ class _$DynamicIconButtonImpl implements _DynamicIconButton {
       this.isSelected,
       final Map<String, dynamic>? selectedIcon,
       final Map<String, dynamic>? icon})
-      : _onPressed = onPressed,
-        _selectedIcon = selectedIcon,
+      : _selectedIcon = selectedIcon,
         _icon = icon;
 
   factory _$DynamicIconButtonImpl.fromJson(Map<String, dynamic> json) =>
@@ -427,16 +426,8 @@ class _$DynamicIconButtonImpl implements _DynamicIconButton {
   final String? splashColor;
   @override
   final String? disabledColor;
-  final Map<String, dynamic>? _onPressed;
   @override
-  Map<String, dynamic>? get onPressed {
-    final value = _onPressed;
-    if (value == null) return null;
-    if (_onPressed is EqualUnmodifiableMapView) return _onPressed;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
+  final String? onPressed;
   @override
   @JsonKey()
   final bool autofocus;
@@ -498,8 +489,8 @@ class _$DynamicIconButtonImpl implements _DynamicIconButton {
                 other.splashColor == splashColor) &&
             (identical(other.disabledColor, disabledColor) ||
                 other.disabledColor == disabledColor) &&
-            const DeepCollectionEquality()
-                .equals(other._onPressed, _onPressed) &&
+            (identical(other.onPressed, onPressed) ||
+                other.onPressed == onPressed) &&
             (identical(other.autofocus, autofocus) ||
                 other.autofocus == autofocus) &&
             (identical(other.tooltip, tooltip) || other.tooltip == tooltip) &&
@@ -529,7 +520,7 @@ class _$DynamicIconButtonImpl implements _DynamicIconButton {
         highlightColor,
         splashColor,
         disabledColor,
-        const DeepCollectionEquality().hash(_onPressed),
+        onPressed,
         autofocus,
         tooltip,
         enableFeedback,
@@ -567,7 +558,7 @@ abstract class _DynamicIconButton implements DynamicIconButton {
       final String? highlightColor,
       final String? splashColor,
       final String? disabledColor,
-      final Map<String, dynamic>? onPressed,
+      final String? onPressed,
       final bool autofocus,
       final String? tooltip,
       final bool? enableFeedback,
@@ -601,7 +592,7 @@ abstract class _DynamicIconButton implements DynamicIconButton {
   @override
   String? get disabledColor;
   @override
-  Map<String, dynamic>? get onPressed;
+  String? get onPressed;
   @override
   bool get autofocus;
   @override

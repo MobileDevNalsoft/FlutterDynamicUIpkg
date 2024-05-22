@@ -82,7 +82,7 @@ class _$DynamicGradientCopyWithImpl<$Res, $Val extends DynamicGradient>
     Object? center = null,
     Object? gradientType = null,
     Object? focal = freezed,
-    Object? tileMode = null,
+    Object? tileMode = freezed,
     Object? focalRadius = null,
     Object? radius = null,
     Object? startAngle = null,
@@ -117,7 +117,7 @@ class _$DynamicGradientCopyWithImpl<$Res, $Val extends DynamicGradient>
           ? _value.focal
           : focal // ignore: cast_nullable_to_non_nullable
               as DynamicAlignmentGeometry?,
-      tileMode: null == tileMode
+      tileMode: freezed == tileMode
           ? _value.tileMode
           : tileMode // ignore: cast_nullable_to_non_nullable
               as TileMode,
@@ -197,7 +197,7 @@ class __$$DynamicGradientImplCopyWithImpl<$Res>
     Object? center = null,
     Object? gradientType = null,
     Object? focal = freezed,
-    Object? tileMode = null,
+    Object? tileMode = freezed,
     Object? focalRadius = null,
     Object? radius = null,
     Object? startAngle = null,
@@ -232,7 +232,7 @@ class __$$DynamicGradientImplCopyWithImpl<$Res>
           ? _value.focal
           : focal // ignore: cast_nullable_to_non_nullable
               as DynamicAlignmentGeometry?,
-      tileMode: null == tileMode
+      tileMode: freezed == tileMode
           ? _value.tileMode
           : tileMode // ignore: cast_nullable_to_non_nullable
               as TileMode,
@@ -344,8 +344,7 @@ class _$DynamicGradientImpl implements _DynamicGradient {
             (identical(other.gradientType, gradientType) ||
                 other.gradientType == gradientType) &&
             (identical(other.focal, focal) || other.focal == focal) &&
-            (identical(other.tileMode, tileMode) ||
-                other.tileMode == tileMode) &&
+            const DeepCollectionEquality().equals(other.tileMode, tileMode) &&
             (identical(other.focalRadius, focalRadius) ||
                 other.focalRadius == focalRadius) &&
             (identical(other.radius, radius) || other.radius == radius) &&
@@ -366,7 +365,7 @@ class _$DynamicGradientImpl implements _DynamicGradient {
       center,
       gradientType,
       focal,
-      tileMode,
+      const DeepCollectionEquality().hash(tileMode),
       focalRadius,
       radius,
       startAngle,

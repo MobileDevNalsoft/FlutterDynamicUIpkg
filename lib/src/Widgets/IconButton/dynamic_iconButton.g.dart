@@ -22,7 +22,7 @@ _$DynamicIconButtonImpl _$$DynamicIconButtonImplFromJson(
       highlightColor: json['highlightColor'] as String?,
       splashColor: json['splashColor'] as String?,
       disabledColor: json['disabledColor'] as String?,
-      onPressed: json['onPressed'] as Map<String, dynamic>?,
+      onPressed: json['onPressed'] as String?,
       autofocus: json['autofocus'] as bool? ?? false,
       tooltip: json['tooltip'] as String?,
       enableFeedback: json['enableFeedback'] as bool?,

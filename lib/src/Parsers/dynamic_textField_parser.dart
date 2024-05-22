@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
-import 'package:flutter_dynamic_ui/src/Enums/widget_type.dart';
+import 'package:flutter_dynamic_ui/src/Utils/widgetType_utils.dart';
 import 'package:flutter_dynamic_ui/src/Utils/color_utils.dart';
 import 'package:flutter_dynamic_ui/src/Widgets/TextField/dynamic_textField.dart';
 import 'package:flutter_dynamic_ui/src/WidgetsProperties/InputDecoration/dynamic_inputDecoration.dart';

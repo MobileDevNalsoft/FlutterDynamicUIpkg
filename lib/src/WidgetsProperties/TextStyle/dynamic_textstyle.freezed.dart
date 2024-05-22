@@ -331,8 +331,7 @@ class _$DynamicTextStyleImpl implements _DynamicTextStyle {
                 other.fontSize == fontSize) &&
             (identical(other.fontWeight, fontWeight) ||
                 other.fontWeight == fontWeight) &&
-            (identical(other.fontStyle, fontStyle) ||
-                other.fontStyle == fontStyle) &&
+            const DeepCollectionEquality().equals(other.fontStyle, fontStyle) &&
             (identical(other.fontFamily, fontFamily) ||
                 other.fontFamily == fontFamily) &&
             const DeepCollectionEquality()
@@ -341,8 +340,8 @@ class _$DynamicTextStyleImpl implements _DynamicTextStyle {
                 other.letterSpacing == letterSpacing) &&
             (identical(other.wordSpacing, wordSpacing) ||
                 other.wordSpacing == wordSpacing) &&
-            (identical(other.textBaseline, textBaseline) ||
-                other.textBaseline == textBaseline) &&
+            const DeepCollectionEquality()
+                .equals(other.textBaseline, textBaseline) &&
             (identical(other.height, height) || other.height == height));
   }
 
@@ -356,12 +355,12 @@ class _$DynamicTextStyleImpl implements _DynamicTextStyle {
       styleFromTheme,
       fontSize,
       fontWeight,
-      fontStyle,
+      const DeepCollectionEquality().hash(fontStyle),
       fontFamily,
       const DeepCollectionEquality().hash(_fontFamilyFallback),
       letterSpacing,
       wordSpacing,
-      textBaseline,
+      const DeepCollectionEquality().hash(textBaseline),
       height);
 
   @JsonKey(ignore: true)
