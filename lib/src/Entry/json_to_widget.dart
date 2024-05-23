@@ -2,7 +2,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_alertDialogParser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_appbar_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_card_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_center_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_circleAvatar_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_column_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_container_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_iconButton_parser.dart';
@@ -45,7 +47,9 @@ class JsonToWidget {
     const DynamicListTileParser(),
     const DynamicListViewParser(),
     const DynamicSingleChildScrollViewParser(),
-    const DynamicAlertDialogParser()
+    const DynamicAlertDialogParser(),
+    const DynamicCardParser(),
+    const DynamicCircleAvatarParser()
   ];
 
   static Future<void> initialize() async {

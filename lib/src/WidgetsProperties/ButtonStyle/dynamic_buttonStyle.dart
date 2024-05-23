@@ -33,7 +33,7 @@ extension DynamicButtonStyleParser on DynamicButtonStyle {
   ButtonStyle parseElevated(BuildContext context) {
     return ElevatedButton.styleFrom(
         foregroundColor: foregroundColor?.toColor(context),
-        backgroundColor: backgroundColor.toColor(context),
+        backgroundColor: backgroundColor?.toColor(context),
         elevation: elevation,
         minimumSize: minimumSize?.parse,
         fixedSize: fixedSize?.parse,

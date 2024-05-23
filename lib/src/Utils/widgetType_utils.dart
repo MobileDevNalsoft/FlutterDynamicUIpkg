@@ -24,5 +24,6 @@ enum WidgetType {
   alertDialog,
   expanded,
   align,
-  gridView
+  gridView,
+  circleAvatar
 }

@@ -27,4 +27,21 @@ class DynamicRowParser extends JsonToWidgetParser<DynamicRow> {
           .toList(),
     );
   }
+
+  @override
+  Widget parseWithFunctions(BuildContext context, DynamicRow model,
+      Map<String, void Function()> functions) {
+    return Row(
+      mainAxisAlignment: model.mainAxisAlignment,
+      crossAxisAlignment: model.crossAxisAlignment,
+      mainAxisSize: model.mainAxisSize,
+      textDirection: model.textDirection,
+      verticalDirection: model.verticalDirection,
+      children: model.children
+          .map((value) =>
+              JsonToWidget.fromJson(value, context, functions) ??
+              const SizedBox())
+          .toList(),
+    );
+  }
 }

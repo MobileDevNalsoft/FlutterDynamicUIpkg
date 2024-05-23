@@ -49,7 +49,6 @@ class DynamicAppBarParser extends JsonToWidgetParser<DynamicAppBar> {
   @override
   Widget parseWithFunctions(BuildContext context, DynamicAppBar model,
       Map<String, void Function()> functions) {
-    print('functions $functions');
     return AppBar(
         leading: JsonToWidget.fromJson(model.leading, context, functions),
         title: JsonToWidget.fromJson(model.title, context),
@@ -60,8 +59,10 @@ class DynamicAppBarParser extends JsonToWidgetParser<DynamicAppBar> {
         foregroundColor: model.foregroundColor?.toColor(context),
         surfaceTintColor: model.surfaceTintColor?.toColor(context),
         actions: model.actions
-            .map((action) =>
-                JsonToWidget.fromJson(action, context) ?? const SizedBox())
+            .map((action) => action["type"].contains("Button")
+                ? JsonToWidget.fromJson(action, context, functions) ??
+                    const SizedBox()
+                : JsonToWidget.fromJson(action, context) ?? const SizedBox())
             .toList(),
         bottom:
             JsonToWidget.fromJson(model.bottom, context).toPreferredSizeWidget,

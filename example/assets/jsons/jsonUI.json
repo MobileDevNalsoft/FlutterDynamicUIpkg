@@ -1,0 +1,223 @@
+{
+    "homeScreen": {
+        "AppBar": {
+            "type": "appBar",
+            "title": {
+                "type": "text",
+                "data": "DashBoard",
+                "style": {
+                    "fontSize": 18
+                }
+            },
+            "centerTitle": true,
+            "backgroundColor": "#78909c",
+            "continuousRectangleBorder": {
+                "borderRadius": {
+                    "bottomLeft": 50,
+                    "bottomRight": 50
+                }
+            },
+            "leading": {
+                "type": "iconButton",
+                "icon": {
+                    "type": "icon",
+                    "icon": "arrow_back_ios",
+                    "iconType": "material"
+                },
+                "onPressed": "backButtonFunction"
+            },
+            "actions": [
+                {
+                    "type": "iconButton",
+                    "icon": {
+                        "type": "icon",
+                        "icon": "power_settings_new_rounded",
+                        "iconType": "material"
+                    },
+                    "onPressed": "logoutButtonFunction"
+                }
+            ]
+        },
+        "Card1": {
+            "type": "card",
+            "shape": {
+                "borderRadius": {
+                    "topLeft": 12,
+                    "bottomLeft": 12,
+                    "bottomRight": 12,
+                    "topRight": 12
+                },
+                "side": {
+                    "borderStyle": "none"
+                }
+            },
+            "child": {
+                "type": "container",
+                "padding": {
+                    "left": 15,
+                    "right": 15,
+                    "top": 10,
+                    "bottom": 10
+                },
+                "child": {
+                    "type": "column",
+                    "mainAxisAlignment": "spaceEvenly",
+                    "children": [
+                        {
+                            "type": "row",
+                            "mainAxisAlignment": "spaceBetween",
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "data": "dynamic",
+                                    "style":{
+                                        "fontSize":13
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "dynamic",
+                                    "style":{
+                                        "fontSize":13
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "row",
+                            "mainAxisAlignment": "spaceBetween",
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "data": "dynamic",
+                                    "style":{
+                                        "fontSize":13
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "dynamic",
+                                    "style":{
+                                        "fontSize":13
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "Card2": {
+            "type": "card",
+            "shape": {
+                "borderRadius": {
+                    "topLeft": 12,
+                    "bottomLeft": 12,
+                    "bottomRight": 12,
+                    "topRight": 12
+                },
+                "side": {
+                    "borderStyle": "none"
+                }
+            },
+            "child": {
+                "type": "container",
+                "height": "dynamic",
+                "padding": {
+                    "left": 20,
+                    "right": 20,
+                    "top": 12,
+                    "bottom": 12
+                },
+                "child": {
+                    "type": "row",
+                    "mainAxisAlignment": "spaceBetween",
+                    "children": [
+                        {
+                            "type": "column",
+                            "mainAxisAlignment": "spaceEvenly",
+                            "crossAxisAlignment": "start",
+                            "children": [
+                                {
+                                    "type": "row",
+                                    "children": [
+                                        {
+                                            "type": "text",
+                                            "data": "dynamic",
+                                            "style": {
+                                                "fontWeight": "w800",
+                                                "color": "#000000"
+                                            }
+                                        },
+                                        {
+                                            "type": "text",
+                                            "data": "dynamic"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "dynamic",
+                                    "overflow": "ellipsis"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "circleAvatar",
+                            "radius": 7,
+                            "backgroundColor": "dynamic"
+                        }
+                    ]
+                }
+            }
+        },
+        "CircleAvatar":{
+            "type": "padding",
+            "padding":2,
+            "child":{
+                "type":"circleAvatar",
+                "backgroundColor":"dynamic",
+                "maxRadius":4
+            }
+        },
+        "FloorButton":{
+            "type":"padding",
+            "padding":{
+                "right":8,
+                "left":8,
+                "bottom":8
+            },
+            "child":{
+                "type":"sizedBox",
+                "height":24,
+                "width":100,
+                "child":{
+                    "type":"elevatedButton",
+                    "onPressed":"floorButtonFunction",
+                    "style":{
+                        "shape":{
+                            "borderRadius":6,
+                            "side": {
+                                "borderStyle": "none"
+                            }
+                        },
+                        "backgroundColor":"dynamic"
+                    },
+                    "child":{
+                        "type":"text",
+                        "data":"dynamic",
+                        "style":{
+                            "fontSize":11,
+                            "color":"dynamic"
+                        }
+                    }
+                }
+            }
+        },
+        "Row":{
+            "type":"row",
+            "mainAxisAlignment":"center",
+            "children":[]
+        }
+    }
+}

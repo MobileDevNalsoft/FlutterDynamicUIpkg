@@ -23,7 +23,7 @@ class DynamicElevatedButtonParser extends JsonToWidgetParser<DynamicButton> {
         onPressed: () {
           functions[model.onPressed]!();
         },
-        style: model.style?.parseText(context),
+        style: model.style?.parseElevated(context),
         child: JsonToWidget.fromJson(model.child, context) ??
             const Text('No Text Passed'));
   }

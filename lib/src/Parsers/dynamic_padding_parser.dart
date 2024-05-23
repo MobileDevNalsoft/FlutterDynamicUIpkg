@@ -22,4 +22,13 @@ class DynamicPaddingParser extends JsonToWidgetParser<DynamicPadding> {
       child: JsonToWidget.fromJson(model.child, context),
     );
   }
+
+  @override
+  Widget parseWithFunctions(BuildContext context, DynamicPadding model,
+      Map<String, void Function()> functions) {
+    return Padding(
+      padding: model.padding.parse,
+      child: JsonToWidget.fromJson(model.child, context, functions),
+    );
+  }
 }
