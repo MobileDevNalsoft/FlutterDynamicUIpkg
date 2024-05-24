@@ -24,7 +24,8 @@ class DynamicTextFieldParser extends JsonToWidgetParser<DynamicTextField> {
   String get type => WidgetType.textField.name;
 
   @override
-  Widget parse(BuildContext context, DynamicTextField model) {
+  Widget parse(BuildContext context, DynamicTextField model,
+      [Map<String, dynamic>? functions]) {
     controller?.text = model.initialValue;
 
     return TextField(

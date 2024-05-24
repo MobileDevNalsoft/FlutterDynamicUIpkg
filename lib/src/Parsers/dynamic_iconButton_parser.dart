@@ -19,8 +19,8 @@ class DynamicIconButtonParser extends JsonToWidgetParser<DynamicIconButton> {
       DynamicIconButton.fromJson(json);
 
   @override
-  Widget parseWithFunctions(BuildContext context, DynamicIconButton model,
-      Map<String, void Function()> functions) {
+  Widget parse(BuildContext context, DynamicIconButton model,
+      [Map<String, dynamic>? functions]) {
     return IconButton(
       iconSize: model.iconSize,
       padding: model.padding.parse,
@@ -33,7 +33,7 @@ class DynamicIconButtonParser extends JsonToWidgetParser<DynamicIconButton> {
       splashColor: model.splashColor.toColor(context),
       disabledColor: model.disabledColor.toColor(context),
       onPressed: () {
-        functions[model.onPressed]!();
+        if (functions != null) functions[model.onPressed]();
       },
       autofocus: model.autofocus,
       tooltip: model.tooltip,

@@ -7,12 +7,6 @@ abstract class JsonToWidgetParser<T> {
 
   T getModel(Map<String, dynamic> json);
 
-  Widget parse(BuildContext context, T model) {
-    return const Placeholder();
-  }
-
-  Widget parseWithFunctions(
-      BuildContext context, T model, Map<String, void Function()> functions) {
-    return const Placeholder();
-  }
+  Widget parse(BuildContext context, T model,
+      [Map<String, dynamic>? functions]);
 }

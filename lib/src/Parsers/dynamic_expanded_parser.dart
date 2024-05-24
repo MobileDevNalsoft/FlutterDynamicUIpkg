@@ -15,10 +15,12 @@ class DynamicExpandedParser extends JsonToWidgetParser<DynamicExpanded> {
       DynamicExpanded.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicExpanded model) {
+  Widget parse(BuildContext context, DynamicExpanded model,
+      [Map<String, dynamic>? functions]) {
     return Expanded(
       flex: model.flex,
-      child: JsonToWidget.fromJson(model.child, context) ?? const SizedBox(),
+      child: JsonToWidget.fromJson(model.child, context, functions) ??
+          const SizedBox(),
     );
   }
 }

@@ -15,18 +15,13 @@ class DynamicAlignParser extends JsonToWidgetParser<DynamicAlign> {
   String get type => WidgetType.align.name;
 
   @override
-  Widget parse(BuildContext context, DynamicAlign model) {
+  Widget parse(BuildContext context, DynamicAlign model,
+      [Map<String, dynamic>? functions]) {
     return Align(
       alignment: model.alignment.value,
       heightFactor: model.heightFactor,
       widthFactor: model.widthFactor,
-      child: JsonToWidget.fromJson(model.child, context),
+      child: JsonToWidget.fromJson(model.child, context, functions),
     );
-  }
-
-  @override
-  Widget parseWithFunctions(BuildContext context, DynamicAlign model,
-      Map<String, void Function()> functions) {
-    return const Placeholder();
   }
 }

@@ -16,7 +16,7 @@ class DynamicTextParser extends JsonToWidgetParser<DynamicText> {
 
   @override
   Widget parse(BuildContext context, DynamicText model,
-      [Map<String, void Function()?>? functions]) {
+      [Map<String, dynamic>? functions]) {
     return Text.rich(
       TextSpan(
         text: model.data,

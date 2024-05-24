@@ -17,15 +17,15 @@ class DynamicScaffoldParser extends JsonToWidgetParser<DynamicScaffold> {
 
   @override
   Widget parse(BuildContext context, DynamicScaffold model,
-      [Map<String, void Function()?>? functions]) {
+      [Map<String, dynamic>? functions]) {
     return Scaffold(
         key: model.key ? GlobalKey() : null,
-        appBar:
-            JsonToWidget.fromJson(model.appBar, context).toPreferredSizeWidget,
+        appBar: JsonToWidget.fromJson(model.appBar, context, functions)
+            .toPreferredSizeWidget,
         backgroundColor: model.backgroundColor.toColor(context),
-        body: JsonToWidget.fromJson(model.body, context),
-        floatingActionButton:
-            JsonToWidget.fromJson(model.floatingActionButton, context),
+        body: JsonToWidget.fromJson(model.body, context, functions),
+        floatingActionButton: JsonToWidget.fromJson(
+            model.floatingActionButton, context, functions),
         floatingActionButtonLocation:
             model.floatingActionButtonLocation?.value);
   }

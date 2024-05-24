@@ -17,7 +17,8 @@ class DynamicCardParser extends JsonToWidgetParser<DynamicCard> {
   DynamicCard getModel(Map<String, dynamic> json) => DynamicCard.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicCard model) {
+  Widget parse(BuildContext context, DynamicCard model,
+      [Map<String, dynamic>? functions]) {
     return Card(
       color: model.color?.toColor(context),
       shadowColor: model.shadowColor?.toColor(context),
@@ -28,7 +29,7 @@ class DynamicCardParser extends JsonToWidgetParser<DynamicCard> {
       semanticContainer: model.semanticContainer,
       margin: model.margin?.parse,
       shape: model.shape.parse(context),
-      child: JsonToWidget.fromJson(model.child, context),
+      child: JsonToWidget.fromJson(model.child, context, functions),
     );
   }
 }

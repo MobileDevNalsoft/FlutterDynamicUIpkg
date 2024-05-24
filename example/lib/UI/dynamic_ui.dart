@@ -3,6 +3,7 @@ import 'package:customs/src.dart';
 import 'package:example/Models/meeting_room_model.dart';
 import 'package:example/Provider/meeting_room_provider.dart';
 import 'package:example/Provider/ui_provider.dart';
+import 'package:example/UI/dynamic_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamic_ui/src.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ class _DynamicUIState extends State<DynamicUI> {
   int? upcomingMeetingsCount;
   final PageController _pageController = PageController();
   final PageController _floorPageController = PageController();
+  // ignore: prefer_typing_uninitialized_variables
   late final sharedPreferences;
 
   @override
@@ -40,25 +42,28 @@ class _DynamicUIState extends State<DynamicUI> {
     sharedPreferences = await SharedPreferences.getInstance();
     json = await loadJsonFromAssets("assets/jsons/jsonUI.json");
     json = json?['homeScreen'];
+    // ignore: use_build_context_synchronously
     Provider.of<MeetingRoomProvider>(context, listen: false)
         .fetchListOfMeetingRooms();
+    // ignore: use_build_context_synchronously
     Provider.of<MeetingRoomProvider>(context, listen: false)
         .fetchUpcomingMeetings();
+    // ignore: use_build_context_synchronously
     Provider.of<UIProvider>(context, listen: false).setIsLoading(false);
   }
 
   @override
   Widget build(BuildContext context) {
-    var e;
-    Map<String, void Function()> functions = {
+    Map<String, dynamic> functions = {
       "backButtonFunction": () {
+        // ignore: avoid_print
         print('page popped');
       },
       "logoutButtonFunction": () {
+        // ignore: avoid_print
         print('log out');
-      },
-      "floorButtonFunction": () {
-        _floorPageController.jumpToPage(e.keys.first);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => DynamicTFF()));
       }
     };
 
@@ -153,7 +158,9 @@ class _DynamicUIState extends State<DynamicUI> {
                                                     'Floor ${e.floor}';
 
                                                 return JsonToWidget.fromJson(
-                                                    json!["Card1"], context)!;
+                                                    json!["Card1"],
+                                                    context,
+                                                    functions)!;
                                               }).toList(),
                                             ),
                                           ),
@@ -178,7 +185,8 @@ class _DynamicUIState extends State<DynamicUI> {
                                                           : "#ffffff";
                                                   return JsonToWidget.fromJson(
                                                       json!["CircleAvatar"],
-                                                      context)!;
+                                                      context,
+                                                      functions)!;
                                                 }),
                                               );
                                             },
@@ -197,13 +205,18 @@ class _DynamicUIState extends State<DynamicUI> {
                           ),
                           Consumer<MeetingRoomProvider>(
                             builder: (context, provider, child) {
-                              json!["Row"]["children"] = [
+                              for (var e in [
                                 {0: 1},
                                 {1: 8},
                                 {2: 9}
-                              ].map((e) {
-                                Map<String, dynamic> tempJson = {};
-                                tempJson = json!["FloorButton"];
+                              ]) {
+                                functions[
+                                        "floorButton${e.keys.first + 1}Function"] =
+                                    () {
+                                  _floorPageController.jumpToPage(e.keys.first);
+                                };
+                                Map<String, dynamic> tempJson =
+                                    json!["Row"]["children"][e.keys.first];
                                 tempJson["child"]["width"] = size.width * 0.2;
                                 tempJson["child"]["child"]["style"]
                                         ["backgroundColor"] =
@@ -217,8 +230,7 @@ class _DynamicUIState extends State<DynamicUI> {
                                     provider.getCurrentFloorPage == e.keys.first
                                         ? "#ffffff"
                                         : "#000000";
-                                return tempJson;
-                              }).toList();
+                              }
 
                               return JsonToWidget.fromJson(
                                   json!["Row"], context, functions)!;
@@ -256,12 +268,14 @@ class _DynamicUIState extends State<DynamicUI> {
                                       },
                                       children: [1, 8, 9]
                                           .map((e) => FloorPage(
-                                              meetingRooms: meetingRooms,
-                                              floor: e,
-                                              size: size,
-                                              sharedPreferences:
-                                                  sharedPreferences,
-                                              json: json!['Card2']))
+                                                meetingRooms: meetingRooms,
+                                                floor: e,
+                                                size: size,
+                                                sharedPreferences:
+                                                    sharedPreferences,
+                                                json: json!['Card2'],
+                                                functions: functions,
+                                              ))
                                           .toList(),
                                     );
                                   }
@@ -288,6 +302,7 @@ class FloorPage extends StatefulWidget {
   var size;
   final SharedPreferences sharedPreferences;
   Map<String, dynamic> json;
+  Map<String, dynamic> functions;
 
   FloorPage(
       {super.key,
@@ -295,7 +310,8 @@ class FloorPage extends StatefulWidget {
       required this.floor,
       required this.size,
       required this.sharedPreferences,
-      required this.json});
+      required this.json,
+      required this.functions});
 
   @override
   State<FloorPage> createState() => _FloorPageState();
@@ -341,7 +357,8 @@ class _FloorPageState extends State<FloorPage> {
                 Provider.of<MeetingRoomProvider>(context, listen: false)
                     .selectedMeetingRoomSize = widget.meetingRooms[index].size;
               },
-              child: JsonToWidget.fromJson(widget.json, context));
+              child: JsonToWidget.fromJson(
+                  widget.json, context, widget.functions));
         } else {
           return const SizedBox();
         }

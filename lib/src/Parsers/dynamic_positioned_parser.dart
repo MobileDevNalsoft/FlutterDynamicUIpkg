@@ -16,7 +16,8 @@ class DynamicPositionedParser extends JsonToWidgetParser<DynamicPositioned> {
   String get type => WidgetType.positioned.name;
 
   @override
-  Widget parse(BuildContext context, DynamicPositioned model) {
+  Widget parse(BuildContext context, DynamicPositioned model,
+      [Map<String, dynamic>? functions]) {
     switch (model.positionedType) {
       case DynamicPositionedType.directional:
         return Positioned.directional(
@@ -27,7 +28,7 @@ class DynamicPositionedParser extends JsonToWidgetParser<DynamicPositioned> {
             width: model.width,
             start: model.start,
             end: model.end,
-            child: JsonToWidget.fromJson(model.child, context) ??
+            child: JsonToWidget.fromJson(model.child, context, functions) ??
                 const SizedBox());
       case DynamicPositionedType.fill:
         return Positioned.fill(
@@ -35,12 +36,12 @@ class DynamicPositionedParser extends JsonToWidgetParser<DynamicPositioned> {
             top: model.top,
             right: model.right,
             bottom: model.bottom,
-            child: JsonToWidget.fromJson(model.child, context) ??
+            child: JsonToWidget.fromJson(model.child, context, functions) ??
                 const SizedBox());
       case DynamicPositionedType.fromRect:
         return Positioned.fromRect(
             rect: model.rect?.parse ?? Rect.zero,
-            child: JsonToWidget.fromJson(model.child, context) ??
+            child: JsonToWidget.fromJson(model.child, context, functions) ??
                 const SizedBox());
       default:
         return Positioned(
@@ -50,7 +51,7 @@ class DynamicPositionedParser extends JsonToWidgetParser<DynamicPositioned> {
             bottom: model.bottom,
             height: model.height,
             width: model.width,
-            child: JsonToWidget.fromJson(model.child, context) ??
+            child: JsonToWidget.fromJson(model.child, context, functions) ??
                 const SizedBox());
     }
   }

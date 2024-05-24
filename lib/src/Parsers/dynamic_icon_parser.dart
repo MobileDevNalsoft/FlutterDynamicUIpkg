@@ -15,7 +15,8 @@ class DynamicIconParser extends JsonToWidgetParser<DynamicIcon> {
   DynamicIcon getModel(Map<String, dynamic> json) => DynamicIcon.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicIcon model) {
+  Widget parse(BuildContext context, DynamicIcon model,
+      [Map<String, dynamic>? functions]) {
     IconData? iconData;
     switch (model.iconType) {
       case IconType.material:

@@ -180,7 +180,11 @@
                 "maxRadius":4
             }
         },
-        "FloorButton":{
+        "Row":{
+            "type":"row",
+            "mainAxisAlignment":"center",
+            "children":[
+                {
             "type":"padding",
             "padding":{
                 "right":8,
@@ -193,7 +197,7 @@
                 "width":100,
                 "child":{
                     "type":"elevatedButton",
-                    "onPressed":"floorButtonFunction",
+                            "onPressed":"floorButton1Function",
                     "style":{
                         "shape":{
                             "borderRadius":6,
@@ -214,10 +218,104 @@
                 }
             }
         },
-        "Row":{
-            "type":"row",
-            "mainAxisAlignment":"center",
-            "children":[]
+                {
+                    "type":"padding",
+                    "padding":{
+                        "right":8,
+                        "left":8,
+                        "bottom":8
+                    },
+                    "child":{
+                        "type":"sizedBox",
+                        "height":24,
+                        "width":100,
+                        "child":{
+                            "type":"elevatedButton",
+                            "onPressed":"floorButton2Function",
+                            "style":{
+                                "shape":{
+                                    "borderRadius":6,
+                                    "side": {
+                                        "borderStyle": "none"
+                                    }
+                                },
+                                "backgroundColor":"dynamic"
+                            },
+                            "child":{
+                                "type":"text",
+                                "data":"dynamic",
+                                "style":{
+                                    "fontSize":11,
+                                    "color":"dynamic"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type":"padding",
+                    "padding":{
+                        "right":8,
+                        "left":8,
+                        "bottom":8
+                    },
+                    "child":{
+                        "type":"sizedBox",
+                        "height":24,
+                        "width":100,
+                        "child":{
+                            "type":"elevatedButton",
+                            "onPressed":"floorButton3Function",
+                            "style":{
+                                "shape":{
+                                    "borderRadius":6,
+                                    "side": {
+                                        "borderStyle": "none"
+                                    }
+                                },
+                                "backgroundColor":"dynamic"
+                            },
+                            "child":{
+                                "type":"text",
+                                "data":"dynamic",
+                                "style":{
+                                    "fontSize":11,
+                                    "color":"dynamic"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "dynamicTFF":{
+        "AppBar": {
+            "type": "appBar",
+            "title": {
+                "type": "text",
+                "data": "DynamicTFF",
+                "style": {
+                    "fontSize": 18
+                }
+            },
+            "centerTitle": true,
+            "backgroundColor": "#78909c",
+            "continuousRectangleBorder": {
+                "borderRadius": {
+                    "bottomLeft": 50,
+                    "bottomRight": 50
+                }
+            }
+        },
+        "TextFormField":{
+            "type":"center",
+            "child":{
+                "type":"textFormField",
+                "controller":"dynamic",
+                "focusNode":"dynamic",
+                "onChanged":"textFormFieldonChanged"
+            }
         }
     }
 }

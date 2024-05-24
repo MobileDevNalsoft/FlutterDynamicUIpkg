@@ -16,12 +16,12 @@ class DynamicTextButtonParser extends JsonToWidgetParser<DynamicButton> {
   String get type => WidgetType.textButton.name;
 
   @override
-  Widget parseWithFunctions(BuildContext context, DynamicButton model,
-      Map<String, void Function()> functions) {
+  Widget parse(BuildContext context, DynamicButton model,
+      [Map<String, dynamic>? functions]) {
     return TextButton(
         key: model.key ? GlobalKey() : null,
         onPressed: () {
-          functions[model.onPressed]!();
+          if (functions != null) functions[model.onPressed]();
         },
         style: model.style?.parseText(context),
         child: JsonToWidget.fromJson(model.child, context) ??

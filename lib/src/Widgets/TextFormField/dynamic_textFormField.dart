@@ -15,6 +15,10 @@ part 'dynamic_textFormField.g.dart';
 class DynamicTextFormField with _$DynamicTextFormField {
   const factory DynamicTextFormField({
     String? id,
+    dynamic controller,
+    dynamic focusNode,
+    String? onChanged,
+    String? validator,
     String? compareId,
     DynamicInputDecoration? decoration,
     String? initialValue,

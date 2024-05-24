@@ -17,14 +17,19 @@ class DynamicListTileParser extends JsonToWidgetParser<DynamicListTile> {
       DynamicListTile.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicListTile model) {
+  Widget parse(BuildContext context, DynamicListTile model,
+      [Map<String, dynamic>? functions]) {
     return ListTile(
-      onTap: () {},
-      onLongPress: () {},
-      leading: JsonToWidget.fromJson(model.leading, context),
-      title: JsonToWidget.fromJson(model.title, context),
+      onTap: () {
+        if (functions != null) functions[model.onTap]!();
+      },
+      onLongPress: () {
+        if (functions != null) functions[model.onLongPress]!();
+      },
+      leading: JsonToWidget.fromJson(model.leading, context, functions),
+      title: JsonToWidget.fromJson(model.title, context, functions),
       subtitle: JsonToWidget.fromJson(model.subtitle, context),
-      trailing: JsonToWidget.fromJson(model.trailing, context),
+      trailing: JsonToWidget.fromJson(model.trailing, context, functions),
       isThreeLine: model.isThreeLine,
       dense: model.dense,
       style: model.style,

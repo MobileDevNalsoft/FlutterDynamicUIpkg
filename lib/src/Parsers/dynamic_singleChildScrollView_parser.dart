@@ -17,7 +17,8 @@ class DynamicSingleChildScrollViewParser
   String get type => WidgetType.singleChildScrollView.name;
 
   @override
-  Widget parse(BuildContext context, DynamicSingleChildScrollView model) {
+  Widget parse(BuildContext context, DynamicSingleChildScrollView model,
+      [Map<String, dynamic>? functions]) {
     return SingleChildScrollView(
       scrollDirection: model.scrollDirection,
       reverse: model.reverse,
@@ -28,7 +29,7 @@ class DynamicSingleChildScrollViewParser
       clipBehavior: model.clipBehavior,
       restorationId: model.restorationId,
       keyboardDismissBehavior: model.keyboardDismissBehavior,
-      child: JsonToWidget.fromJson(model.child, context),
+      child: JsonToWidget.fromJson(model.child, context, functions),
     );
   }
 }

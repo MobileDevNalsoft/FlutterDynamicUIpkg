@@ -17,7 +17,8 @@ class DynamicCircleAvatarParser
       DynamicCircleAvatar.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicCircleAvatar model) {
+  Widget parse(BuildContext context, DynamicCircleAvatar model,
+      [Map<String, dynamic>? functions]) {
     return CircleAvatar(
       backgroundColor: model.backgroundColor.toColor(context),
       backgroundImage: model.backgroundImage != null
@@ -30,7 +31,7 @@ class DynamicCircleAvatarParser
       radius: model.radius,
       minRadius: model.minRadius,
       maxRadius: model.maxRadius,
-      child: JsonToWidget.fromJson(model.child, context),
+      child: JsonToWidget.fromJson(model.child, context, functions),
     );
   }
 }

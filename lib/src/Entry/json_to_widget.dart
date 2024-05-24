@@ -57,7 +57,7 @@ class JsonToWidget {
   }
 
   static Widget? fromJson(Map<String, dynamic>? json, context,
-      [Map<String, void Function()>? functions]) {
+      [Map<String, dynamic>? functions]) {
     try {
       if (json != null) {
         String widgetType = json['type'];
@@ -65,9 +65,7 @@ class JsonToWidget {
             DynamicWidgetRegistry.instance.getParser(widgetType);
         if (widgetParser != null) {
           final model = widgetParser.getModel(json);
-          return functions == null
-              ? widgetParser.parse(context, model)
-              : widgetParser.parseWithFunctions(context, model, functions);
+          return widgetParser.parse(context, model, functions);
         } else {
           print('Widget $widgetType not supported');
         }

@@ -18,20 +18,22 @@ class DynamicAlertDialogParser extends JsonToWidgetParser<DynamicAlertDialog> {
       DynamicAlertDialog.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicAlertDialog model) {
+  Widget parse(BuildContext context, DynamicAlertDialog model,
+      [Map<String, dynamic>? functions]) {
     return AlertDialog(
       icon: JsonToWidget.fromJson(model.icon, context),
       iconPadding: model.iconPadding?.parse,
       iconColor: model.iconColor?.toColor(context),
-      title: JsonToWidget.fromJson(model.title, context),
+      title: JsonToWidget.fromJson(model.title, context, functions),
       titlePadding: model.titlePadding?.parse,
       titleTextStyle: model.titleTextStyle?.parse(context),
-      content: JsonToWidget.fromJson(model.content, context),
+      content: JsonToWidget.fromJson(model.content, context, functions),
       contentPadding: model.contentPadding.parse,
       contentTextStyle: model.contentTextStyle?.parse(context),
       actions: model.actions
           ?.map((action) =>
-              JsonToWidget.fromJson(action, context) ?? const SizedBox())
+              JsonToWidget.fromJson(action, context, functions) ??
+              const SizedBox())
           .toList(),
       actionsPadding: model.actionsPadding.parse,
       actionsAlignment: model.actionsAlignment,
@@ -46,11 +48,5 @@ class DynamicAlertDialogParser extends JsonToWidgetParser<DynamicAlertDialog> {
       clipBehavior: model.clipBehavior,
       scrollable: model.scrollable,
     );
-  }
-
-  @override
-  Widget parseWithFunctions(BuildContext context, DynamicAlertDialog model,
-      Map<String, void Function()> functions) {
-    return const Placeholder();
   }
 }

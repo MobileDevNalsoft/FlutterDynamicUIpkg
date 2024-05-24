@@ -19,7 +19,8 @@ class DynamicContainerParser extends JsonToWidgetParser<DynamicContainer> {
       DynamicContainer.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicContainer model) {
+  Widget parse(BuildContext context, DynamicContainer model,
+      [Map<String, dynamic>? functions]) {
     return Container(
       alignment: model.alignment?.value,
       padding: model.padding?.parse,
@@ -31,7 +32,7 @@ class DynamicContainerParser extends JsonToWidgetParser<DynamicContainer> {
       constraints: model.constraints?.parse,
       margin: model.margin?.parse,
       clipBehavior: model.clipBehavior,
-      child: JsonToWidget.fromJson(model.child, context),
+      child: JsonToWidget.fromJson(model.child, context, functions),
     );
   }
 }

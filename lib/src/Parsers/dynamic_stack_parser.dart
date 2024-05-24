@@ -15,7 +15,8 @@ class DynamicStackParser extends JsonToWidgetParser<DynamicStack> {
   String get type => WidgetType.stack.name;
 
   @override
-  Widget parse(BuildContext context, DynamicStack model) {
+  Widget parse(BuildContext context, DynamicStack model,
+      [Map<String, dynamic>? functions]) {
     return Stack(
       alignment: model.alignment.value,
       clipBehavior: model.clipBehavior,
@@ -23,7 +24,8 @@ class DynamicStackParser extends JsonToWidgetParser<DynamicStack> {
       textDirection: model.textDirection,
       children: model.children
           .map((value) =>
-              JsonToWidget.fromJson(value, context) ?? const SizedBox())
+              JsonToWidget.fromJson(value, context, functions) ??
+              const SizedBox())
           .toList(),
     );
   }

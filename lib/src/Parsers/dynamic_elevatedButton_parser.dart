@@ -16,12 +16,12 @@ class DynamicElevatedButtonParser extends JsonToWidgetParser<DynamicButton> {
       DynamicButton.fromJson(json);
 
   @override
-  Widget parseWithFunctions(BuildContext context, DynamicButton model,
-      Map<String, void Function()> functions) {
+  Widget parse(BuildContext context, DynamicButton model,
+      [Map<String, dynamic>? functions]) {
     return ElevatedButton(
         key: model.key ? GlobalKey() : null,
         onPressed: () {
-          functions[model.onPressed]!();
+          if (functions != null) functions[model.onPressed]();
         },
         style: model.style?.parseElevated(context),
         child: JsonToWidget.fromJson(model.child, context) ??

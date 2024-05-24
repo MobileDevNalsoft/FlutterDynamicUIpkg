@@ -16,11 +16,21 @@ class DynamicCenterParser extends JsonToWidgetParser<DynamicCenter> {
 
   @override
   Widget parse(BuildContext context, DynamicCenter model,
-      [Map<String, void Function()?>? functions]) {
+      [Map<String, dynamic>? functions]) {
     return Center(
       widthFactor: model.widthFactor,
       heightFactor: model.heightFactor,
-      child: JsonToWidget.fromJson(model.child, context),
+      child: JsonToWidget.fromJson(model.child, context, functions),
+    );
+  }
+
+  @override
+  Widget parseWithFunctions(BuildContext context, DynamicCenter model,
+      Map<String, dynamic> functions) {
+    return Center(
+      widthFactor: model.widthFactor,
+      heightFactor: model.heightFactor,
+      child: JsonToWidget.fromJson(model.child, context, functions),
     );
   }
 }

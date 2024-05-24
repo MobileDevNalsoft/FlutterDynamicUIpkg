@@ -17,7 +17,8 @@ class DynamicImageParser extends JsonToWidgetParser<DynamicImage> {
       DynamicImage.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, DynamicImage model) {
+  Widget parse(BuildContext context, DynamicImage model,
+      [Map<String, dynamic>? functions]) {
     switch (model.imageType) {
       case DynamicImageType.network:
         return _networkImage(model, context);
