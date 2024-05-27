@@ -31,5 +31,6 @@ enum WidgetType {
   tabBar,
   bottomNavigationBar,
   safeArea,
-  transform
+  transform,
+  floatingActionButton
 }
