@@ -21,6 +21,10 @@ DynamicTextFormField _$DynamicTextFormFieldFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DynamicTextFormField {
   String? get id => throw _privateConstructorUsedError;
+  dynamic get controller => throw _privateConstructorUsedError;
+  dynamic get focusNode => throw _privateConstructorUsedError;
+  String? get onChanged => throw _privateConstructorUsedError;
+  String? get validator => throw _privateConstructorUsedError;
   String? get compareId => throw _privateConstructorUsedError;
   DynamicInputDecoration? get decoration => throw _privateConstructorUsedError;
   String? get initialValue => throw _privateConstructorUsedError;
@@ -77,6 +81,10 @@ abstract class $DynamicTextFormFieldCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
+      dynamic controller,
+      dynamic focusNode,
+      String? onChanged,
+      String? validator,
       String? compareId,
       DynamicInputDecoration? decoration,
       String? initialValue,
@@ -134,6 +142,10 @@ class _$DynamicTextFormFieldCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = freezed,
+    Object? controller = freezed,
+    Object? focusNode = freezed,
+    Object? onChanged = freezed,
+    Object? validator = freezed,
     Object? compareId = freezed,
     Object? decoration = freezed,
     Object? initialValue = freezed,
@@ -175,6 +187,22 @@ class _$DynamicTextFormFieldCopyWithImpl<$Res,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      controller: freezed == controller
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      focusNode: freezed == focusNode
+          ? _value.focusNode
+          : focusNode // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      onChanged: freezed == onChanged
+          ? _value.onChanged
+          : onChanged // ignore: cast_nullable_to_non_nullable
+              as String?,
+      validator: freezed == validator
+          ? _value.validator
+          : validator // ignore: cast_nullable_to_non_nullable
               as String?,
       compareId: freezed == compareId
           ? _value.compareId
@@ -366,6 +394,10 @@ abstract class _$$DynamicTextFormFieldImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? id,
+      dynamic controller,
+      dynamic focusNode,
+      String? onChanged,
+      String? validator,
       String? compareId,
       DynamicInputDecoration? decoration,
       String? initialValue,
@@ -423,6 +455,10 @@ class __$$DynamicTextFormFieldImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? controller = freezed,
+    Object? focusNode = freezed,
+    Object? onChanged = freezed,
+    Object? validator = freezed,
     Object? compareId = freezed,
     Object? decoration = freezed,
     Object? initialValue = freezed,
@@ -464,6 +500,22 @@ class __$$DynamicTextFormFieldImplCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      controller: freezed == controller
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      focusNode: freezed == focusNode
+          ? _value.focusNode
+          : focusNode // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      onChanged: freezed == onChanged
+          ? _value.onChanged
+          : onChanged // ignore: cast_nullable_to_non_nullable
+              as String?,
+      validator: freezed == validator
+          ? _value.validator
+          : validator // ignore: cast_nullable_to_non_nullable
               as String?,
       compareId: freezed == compareId
           ? _value.compareId
@@ -618,6 +670,10 @@ class __$$DynamicTextFormFieldImplCopyWithImpl<$Res>
 class _$DynamicTextFormFieldImpl implements _DynamicTextFormField {
   const _$DynamicTextFormFieldImpl(
       {this.id,
+      this.controller,
+      this.focusNode,
+      this.onChanged,
+      this.validator,
       this.compareId,
       this.decoration,
       this.initialValue,
@@ -663,6 +719,14 @@ class _$DynamicTextFormFieldImpl implements _DynamicTextFormField {
 
   @override
   final String? id;
+  @override
+  final dynamic controller;
+  @override
+  final dynamic focusNode;
+  @override
+  final String? onChanged;
+  @override
+  final String? validator;
   @override
   final String? compareId;
   @override
@@ -762,7 +826,7 @@ class _$DynamicTextFormFieldImpl implements _DynamicTextFormField {
 
   @override
   String toString() {
-    return 'DynamicTextFormField(id: $id, compareId: $compareId, decoration: $decoration, initialValue: $initialValue, keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, style: $style, textAlign: $textAlign, textAlignVertical: $textAlignVertical, textDirection: $textDirection, readOnly: $readOnly, showCursor: $showCursor, autofocus: $autofocus, obscuringCharacter: $obscuringCharacter, maxLines: $maxLines, minLines: $minLines, maxLength: $maxLength, obscureText: $obscureText, autocorrect: $autocorrect, smartDashesType: $smartDashesType, smartQuotesType: $smartQuotesType, maxLengthEnforcement: $maxLengthEnforcement, expands: $expands, keyboardAppearance: $keyboardAppearance, scrollPadding: $scrollPadding, restorationId: $restorationId, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning, enableSuggestions: $enableSuggestions, enabled: $enabled, cursorWidth: $cursorWidth, cursorHeight: $cursorHeight, cursorColor: $cursorColor, hintText: $hintText, autovalidateMode: $autovalidateMode, inputFormatters: $inputFormatters, validatorRules: $validatorRules)';
+    return 'DynamicTextFormField(id: $id, controller: $controller, focusNode: $focusNode, onChanged: $onChanged, validator: $validator, compareId: $compareId, decoration: $decoration, initialValue: $initialValue, keyboardType: $keyboardType, textInputAction: $textInputAction, textCapitalization: $textCapitalization, style: $style, textAlign: $textAlign, textAlignVertical: $textAlignVertical, textDirection: $textDirection, readOnly: $readOnly, showCursor: $showCursor, autofocus: $autofocus, obscuringCharacter: $obscuringCharacter, maxLines: $maxLines, minLines: $minLines, maxLength: $maxLength, obscureText: $obscureText, autocorrect: $autocorrect, smartDashesType: $smartDashesType, smartQuotesType: $smartQuotesType, maxLengthEnforcement: $maxLengthEnforcement, expands: $expands, keyboardAppearance: $keyboardAppearance, scrollPadding: $scrollPadding, restorationId: $restorationId, enableIMEPersonalizedLearning: $enableIMEPersonalizedLearning, enableSuggestions: $enableSuggestions, enabled: $enabled, cursorWidth: $cursorWidth, cursorHeight: $cursorHeight, cursorColor: $cursorColor, hintText: $hintText, autovalidateMode: $autovalidateMode, inputFormatters: $inputFormatters, validatorRules: $validatorRules)';
   }
 
   @override
@@ -771,6 +835,13 @@ class _$DynamicTextFormFieldImpl implements _DynamicTextFormField {
         (other.runtimeType == runtimeType &&
             other is _$DynamicTextFormFieldImpl &&
             (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality()
+                .equals(other.controller, controller) &&
+            const DeepCollectionEquality().equals(other.focusNode, focusNode) &&
+            (identical(other.onChanged, onChanged) ||
+                other.onChanged == onChanged) &&
+            (identical(other.validator, validator) ||
+                other.validator == validator) &&
             (identical(other.compareId, compareId) ||
                 other.compareId == compareId) &&
             (identical(other.decoration, decoration) ||
@@ -849,6 +920,10 @@ class _$DynamicTextFormFieldImpl implements _DynamicTextFormField {
   int get hashCode => Object.hashAll([
         runtimeType,
         id,
+        const DeepCollectionEquality().hash(controller),
+        const DeepCollectionEquality().hash(focusNode),
+        onChanged,
+        validator,
         compareId,
         decoration,
         initialValue,
@@ -906,6 +981,10 @@ class _$DynamicTextFormFieldImpl implements _DynamicTextFormField {
 abstract class _DynamicTextFormField implements DynamicTextFormField {
   const factory _DynamicTextFormField(
           {final String? id,
+          final dynamic controller,
+          final dynamic focusNode,
+          final String? onChanged,
+          final String? validator,
           final String? compareId,
           final DynamicInputDecoration? decoration,
           final String? initialValue,
@@ -949,6 +1028,14 @@ abstract class _DynamicTextFormField implements DynamicTextFormField {
 
   @override
   String? get id;
+  @override
+  dynamic get controller;
+  @override
+  dynamic get focusNode;
+  @override
+  String? get onChanged;
+  @override
+  String? get validator;
   @override
   String? get compareId;
   @override

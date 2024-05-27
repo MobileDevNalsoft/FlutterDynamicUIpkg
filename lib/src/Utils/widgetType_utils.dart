@@ -25,5 +25,11 @@ enum WidgetType {
   expanded,
   align,
   gridView,
-  circleAvatar
+  circleAvatar,
+  pageView,
+  tabBarView,
+  tabBar,
+  bottomNavigationBar,
+  safeArea,
+  transform
 }

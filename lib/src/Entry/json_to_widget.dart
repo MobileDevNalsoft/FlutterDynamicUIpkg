@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_dynamic_ui/src/Entry/JsonToWidgetParser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_alertDialogParser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_appbar_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_bottomNavigationBar.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_card_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_center_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_circleAvatar_parser.dart';
@@ -11,7 +12,11 @@ import 'package:flutter_dynamic_ui/src/Parsers/dynamic_iconButton_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_listTile_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_listView_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_padding_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_pageView_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_safeArea_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_singleChildScrollView_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_tabBarView_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_tabBar_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textFormField_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_elevatedButton_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_icon_parser.dart';
@@ -23,6 +28,7 @@ import 'package:flutter_dynamic_ui/src/Parsers/dynamic_stack_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textButton_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_textField_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_text_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_transfrom_parser.dart';
 import 'package:flutter_dynamic_ui/src/Registry/dynamic_widget_registry.dart';
 
 class JsonToWidget {
@@ -49,7 +55,13 @@ class JsonToWidget {
     const DynamicSingleChildScrollViewParser(),
     const DynamicAlertDialogParser(),
     const DynamicCardParser(),
-    const DynamicCircleAvatarParser()
+    const DynamicCircleAvatarParser(),
+    const DynamicPageViewParser(),
+    const DynamicTabBarViewParser(),
+    const DynamicTabBarParser(),
+    const DynamicBottomNavigationBarParser(),
+    const DynamicSafeAreaParser(),
+    const DynamicTransfromParser()
   ];
 
   static Future<void> initialize() async {

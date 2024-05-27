@@ -10,6 +10,10 @@ _$DynamicTextFormFieldImpl _$$DynamicTextFormFieldImplFromJson(
         Map<String, dynamic> json) =>
     _$DynamicTextFormFieldImpl(
       id: json['id'] as String?,
+      controller: json['controller'],
+      focusNode: json['focusNode'],
+      onChanged: json['onChanged'] as String?,
+      validator: json['validator'] as String?,
       compareId: json['compareId'] as String?,
       decoration: json['decoration'] == null
           ? null
@@ -80,6 +84,10 @@ Map<String, dynamic> _$$DynamicTextFormFieldImplToJson(
         _$DynamicTextFormFieldImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'controller': instance.controller,
+      'focusNode': instance.focusNode,
+      'onChanged': instance.onChanged,
+      'validator': instance.validator,
       'compareId': instance.compareId,
       'decoration': instance.decoration,
       'initialValue': instance.initialValue,
