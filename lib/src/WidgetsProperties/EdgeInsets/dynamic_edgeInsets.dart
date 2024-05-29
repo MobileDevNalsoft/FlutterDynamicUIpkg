@@ -25,16 +25,12 @@ class DynamicEdgeInsets with _$DynamicEdgeInsets {
         "right": json,
         "bottom": json
       };
-    } else if (json is List<dynamic> && json.length == 4) {
-      bool allElementsNum = json.every((element) => element is num);
-      if (!allElementsNum) {
-        throw ArgumentError('Invalid input format for DynamicEdgeInsets');
-      }
+    } else if (json is Map<String, dynamic> && json.length == 2) {
       resultantJson = {
-        "left": json[0],
-        "top": json[1],
-        "right": json[2],
-        "bottom": json[3]
+        "left": json['horizontal'],
+        "top": json['vertical'],
+        "right": json['horizontal'],
+        "bottom": json['vertical']
       };
     } else if (json is Map<String, dynamic>) {
       resultantJson = json;
