@@ -1,0 +1,31 @@
+[
+    {
+       "type":"column",
+       "children":[
+          {
+             "type":"text",
+             "data":"Header",
+             "style":{
+                "textstyle":{
+                   "color":"FF000000",
+                   "backgroundColor":"FFAA00FF",
+                   "fontSize":24,
+                   "fontStyle":"normal"
+                }
+             }
+          },
+          {
+             "type":"text",
+             "data":"sub header",
+             "style":{
+                "textstyle":{
+                   "color":"FF12B0F5",
+                   "backgroundColor":"FFA22DDC",
+                   "fontSize":12,
+                   "fontStyle":"FontStyle.normal"
+                }
+             }
+          }
+       ]
+    }
+ ]
