@@ -36,7 +36,7 @@ enum ColorType {
 }
 
 extension ColorExt on String? {
-  Color? toColor(BuildContext context) {
+  Color? toColor(BuildContext context, {double? opacity}) {
     if (this?.isEmpty ?? true) return null;
 
     switch (colorType) {
@@ -108,7 +108,9 @@ extension ColorExt on String? {
         buffer.write(this!.replaceFirst('#', ''));
         int? intColor = int.tryParse(buffer.toString(), radix: 16);
         intColor = intColor ?? 0x00000000;
-        return Color(intColor);
+        return opacity != null
+            ? Color(intColor).withOpacity(opacity)
+            : Color(intColor);
     }
   }
 
