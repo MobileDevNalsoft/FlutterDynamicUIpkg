@@ -10,6 +10,7 @@ _$DynamicBoxDecorationImpl _$$DynamicBoxDecorationImplFromJson(
         Map<String, dynamic> json) =>
     _$DynamicBoxDecorationImpl(
       color: json['color'] as String?,
+      opacity: (json['opacity'] as num?)?.toDouble(),
       backgroundBlendMode:
           $enumDecodeNullable(_$BlendModeEnumMap, json['backgroundBlendMode']),
       boxShadow: (json['boxShadow'] as List<dynamic>?)
@@ -38,6 +39,7 @@ Map<String, dynamic> _$$DynamicBoxDecorationImplToJson(
         _$DynamicBoxDecorationImpl instance) =>
     <String, dynamic>{
       'color': instance.color,
+      'opacity': instance.opacity,
       'backgroundBlendMode': _$BlendModeEnumMap[instance.backgroundBlendMode],
       'boxShadow': instance.boxShadow,
       'shape': _$BoxShapeEnumMap[instance.shape]!,

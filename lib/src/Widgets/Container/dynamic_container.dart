@@ -17,6 +17,7 @@ class DynamicContainer with _$DynamicContainer {
     DynamicBoxDecoration? decoration,
     DynamicBoxDecoration? foregroundDecoration,
     String? color,
+    double? opacity,
     double? width,
     double? height,
     DynamicBoxConstraints? constraints,

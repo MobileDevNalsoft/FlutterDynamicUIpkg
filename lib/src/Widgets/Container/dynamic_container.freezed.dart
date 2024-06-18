@@ -26,6 +26,7 @@ mixin _$DynamicContainer {
   DynamicBoxDecoration? get foregroundDecoration =>
       throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
+  double? get opacity => throw _privateConstructorUsedError;
   double? get width => throw _privateConstructorUsedError;
   double? get height => throw _privateConstructorUsedError;
   DynamicBoxConstraints? get constraints => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $DynamicContainerCopyWith<$Res> {
       DynamicBoxDecoration? decoration,
       DynamicBoxDecoration? foregroundDecoration,
       String? color,
+      double? opacity,
       double? width,
       double? height,
       DynamicBoxConstraints? constraints,
@@ -83,6 +85,7 @@ class _$DynamicContainerCopyWithImpl<$Res, $Val extends DynamicContainer>
     Object? decoration = freezed,
     Object? foregroundDecoration = freezed,
     Object? color = freezed,
+    Object? opacity = freezed,
     Object? width = freezed,
     Object? height = freezed,
     Object? constraints = freezed,
@@ -111,6 +114,10 @@ class _$DynamicContainerCopyWithImpl<$Res, $Val extends DynamicContainer>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
+      opacity: freezed == opacity
+          ? _value.opacity
+          : opacity // ignore: cast_nullable_to_non_nullable
+              as double?,
       width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -214,6 +221,7 @@ abstract class _$$DynamicContainerImplCopyWith<$Res>
       DynamicBoxDecoration? decoration,
       DynamicBoxDecoration? foregroundDecoration,
       String? color,
+      double? opacity,
       double? width,
       double? height,
       DynamicBoxConstraints? constraints,
@@ -249,6 +257,7 @@ class __$$DynamicContainerImplCopyWithImpl<$Res>
     Object? decoration = freezed,
     Object? foregroundDecoration = freezed,
     Object? color = freezed,
+    Object? opacity = freezed,
     Object? width = freezed,
     Object? height = freezed,
     Object? constraints = freezed,
@@ -277,6 +286,10 @@ class __$$DynamicContainerImplCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
+      opacity: freezed == opacity
+          ? _value.opacity
+          : opacity // ignore: cast_nullable_to_non_nullable
+              as double?,
       width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -314,6 +327,7 @@ class _$DynamicContainerImpl implements _DynamicContainer {
       this.decoration,
       this.foregroundDecoration,
       this.color,
+      this.opacity,
       this.width,
       this.height,
       this.constraints,
@@ -335,6 +349,8 @@ class _$DynamicContainerImpl implements _DynamicContainer {
   final DynamicBoxDecoration? foregroundDecoration;
   @override
   final String? color;
+  @override
+  final double? opacity;
   @override
   final double? width;
   @override
@@ -359,7 +375,7 @@ class _$DynamicContainerImpl implements _DynamicContainer {
 
   @override
   String toString() {
-    return 'DynamicContainer(alignment: $alignment, padding: $padding, decoration: $decoration, foregroundDecoration: $foregroundDecoration, color: $color, width: $width, height: $height, constraints: $constraints, margin: $margin, child: $child, clipBehavior: $clipBehavior)';
+    return 'DynamicContainer(alignment: $alignment, padding: $padding, decoration: $decoration, foregroundDecoration: $foregroundDecoration, color: $color, opacity: $opacity, width: $width, height: $height, constraints: $constraints, margin: $margin, child: $child, clipBehavior: $clipBehavior)';
   }
 
   @override
@@ -375,6 +391,7 @@ class _$DynamicContainerImpl implements _DynamicContainer {
             (identical(other.foregroundDecoration, foregroundDecoration) ||
                 other.foregroundDecoration == foregroundDecoration) &&
             (identical(other.color, color) || other.color == color) &&
+            (identical(other.opacity, opacity) || other.opacity == opacity) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.constraints, constraints) ||
@@ -394,6 +411,7 @@ class _$DynamicContainerImpl implements _DynamicContainer {
       decoration,
       foregroundDecoration,
       color,
+      opacity,
       width,
       height,
       constraints,
@@ -423,6 +441,7 @@ abstract class _DynamicContainer implements DynamicContainer {
       final DynamicBoxDecoration? decoration,
       final DynamicBoxDecoration? foregroundDecoration,
       final String? color,
+      final double? opacity,
       final double? width,
       final double? height,
       final DynamicBoxConstraints? constraints,
@@ -443,6 +462,8 @@ abstract class _DynamicContainer implements DynamicContainer {
   DynamicBoxDecoration? get foregroundDecoration;
   @override
   String? get color;
+  @override
+  double? get opacity;
   @override
   double? get width;
   @override

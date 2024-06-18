@@ -14,6 +14,7 @@ part 'dynamic_boxDecoration.g.dart';
 class DynamicBoxDecoration with _$DynamicBoxDecoration {
   const factory DynamicBoxDecoration({
     String? color,
+    double? opacity,
     BlendMode? backgroundBlendMode,
     List<DynamicBoxShadow?>? boxShadow,
     @Default(BoxShape.rectangle) BoxShape shape,
@@ -30,7 +31,7 @@ class DynamicBoxDecoration with _$DynamicBoxDecoration {
 extension DynamicBoxDecorationParser on DynamicBoxDecoration? {
   BoxDecoration? parse(BuildContext context) {
     return BoxDecoration(
-      color: this?.color.toColor(context),
+      color: this?.color.toColor(context, opacity: this?.opacity ?? 1),
       backgroundBlendMode: this?.backgroundBlendMode,
       boxShadow: this?.boxShadow?.map((elem) => elem.parse(context)).toList(),
       shape: this?.shape ?? BoxShape.rectangle,

@@ -23,6 +23,7 @@ _$DynamicContainerImpl _$$DynamicContainerImplFromJson(
           : DynamicBoxDecoration.fromJson(
               json['foregroundDecoration'] as Map<String, dynamic>),
       color: json['color'] as String?,
+      opacity: (json['opacity'] as num?)?.toDouble(),
       width: (json['width'] as num?)?.toDouble(),
       height: (json['height'] as num?)?.toDouble(),
       constraints: json['constraints'] == null
@@ -45,6 +46,7 @@ Map<String, dynamic> _$$DynamicContainerImplToJson(
       'decoration': instance.decoration,
       'foregroundDecoration': instance.foregroundDecoration,
       'color': instance.color,
+      'opacity': instance.opacity,
       'width': instance.width,
       'height': instance.height,
       'constraints': instance.constraints,

@@ -24,7 +24,7 @@ class DynamicContainerParser extends JsonToWidgetParser<DynamicContainer> {
     return Container(
       alignment: model.alignment?.value,
       padding: model.padding?.parse,
-      color: model.color.toColor(context),
+      color: model.color.toColor(context)!.withOpacity(model.opacity ?? 1),
       decoration: model.decoration?.parse(context),
       foregroundDecoration: model.foregroundDecoration?.parse(context),
       width: model.width,

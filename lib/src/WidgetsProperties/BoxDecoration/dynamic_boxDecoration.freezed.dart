@@ -21,6 +21,7 @@ DynamicBoxDecoration _$DynamicBoxDecorationFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DynamicBoxDecoration {
   String? get color => throw _privateConstructorUsedError;
+  double? get opacity => throw _privateConstructorUsedError;
   BlendMode? get backgroundBlendMode => throw _privateConstructorUsedError;
   List<DynamicBoxShadow?>? get boxShadow => throw _privateConstructorUsedError;
   BoxShape get shape => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $DynamicBoxDecorationCopyWith<$Res> {
   @useResult
   $Res call(
       {String? color,
+      double? opacity,
       BlendMode? backgroundBlendMode,
       List<DynamicBoxShadow?>? boxShadow,
       BoxShape shape,
@@ -72,6 +74,7 @@ class _$DynamicBoxDecorationCopyWithImpl<$Res,
   @override
   $Res call({
     Object? color = freezed,
+    Object? opacity = freezed,
     Object? backgroundBlendMode = freezed,
     Object? boxShadow = freezed,
     Object? shape = null,
@@ -85,6 +88,10 @@ class _$DynamicBoxDecorationCopyWithImpl<$Res,
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
+      opacity: freezed == opacity
+          ? _value.opacity
+          : opacity // ignore: cast_nullable_to_non_nullable
+              as double?,
       backgroundBlendMode: freezed == backgroundBlendMode
           ? _value.backgroundBlendMode
           : backgroundBlendMode // ignore: cast_nullable_to_non_nullable
@@ -175,6 +182,7 @@ abstract class _$$DynamicBoxDecorationImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? color,
+      double? opacity,
       BlendMode? backgroundBlendMode,
       List<DynamicBoxShadow?>? boxShadow,
       BoxShape shape,
@@ -205,6 +213,7 @@ class __$$DynamicBoxDecorationImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? color = freezed,
+    Object? opacity = freezed,
     Object? backgroundBlendMode = freezed,
     Object? boxShadow = freezed,
     Object? shape = null,
@@ -218,6 +227,10 @@ class __$$DynamicBoxDecorationImplCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
+      opacity: freezed == opacity
+          ? _value.opacity
+          : opacity // ignore: cast_nullable_to_non_nullable
+              as double?,
       backgroundBlendMode: freezed == backgroundBlendMode
           ? _value.backgroundBlendMode
           : backgroundBlendMode // ignore: cast_nullable_to_non_nullable
@@ -255,6 +268,7 @@ class __$$DynamicBoxDecorationImplCopyWithImpl<$Res>
 class _$DynamicBoxDecorationImpl implements _DynamicBoxDecoration {
   const _$DynamicBoxDecorationImpl(
       {this.color,
+      this.opacity,
       this.backgroundBlendMode,
       final List<DynamicBoxShadow?>? boxShadow,
       this.shape = BoxShape.rectangle,
@@ -269,6 +283,8 @@ class _$DynamicBoxDecorationImpl implements _DynamicBoxDecoration {
 
   @override
   final String? color;
+  @override
+  final double? opacity;
   @override
   final BlendMode? backgroundBlendMode;
   final List<DynamicBoxShadow?>? _boxShadow;
@@ -295,7 +311,7 @@ class _$DynamicBoxDecorationImpl implements _DynamicBoxDecoration {
 
   @override
   String toString() {
-    return 'DynamicBoxDecoration(color: $color, backgroundBlendMode: $backgroundBlendMode, boxShadow: $boxShadow, shape: $shape, border: $border, borderRadius: $borderRadius, image: $image, gradient: $gradient)';
+    return 'DynamicBoxDecoration(color: $color, opacity: $opacity, backgroundBlendMode: $backgroundBlendMode, boxShadow: $boxShadow, shape: $shape, border: $border, borderRadius: $borderRadius, image: $image, gradient: $gradient)';
   }
 
   @override
@@ -304,6 +320,7 @@ class _$DynamicBoxDecorationImpl implements _DynamicBoxDecoration {
         (other.runtimeType == runtimeType &&
             other is _$DynamicBoxDecorationImpl &&
             (identical(other.color, color) || other.color == color) &&
+            (identical(other.opacity, opacity) || other.opacity == opacity) &&
             (identical(other.backgroundBlendMode, backgroundBlendMode) ||
                 other.backgroundBlendMode == backgroundBlendMode) &&
             const DeepCollectionEquality()
@@ -322,6 +339,7 @@ class _$DynamicBoxDecorationImpl implements _DynamicBoxDecoration {
   int get hashCode => Object.hash(
       runtimeType,
       color,
+      opacity,
       backgroundBlendMode,
       const DeepCollectionEquality().hash(_boxShadow),
       shape,
@@ -349,6 +367,7 @@ class _$DynamicBoxDecorationImpl implements _DynamicBoxDecoration {
 abstract class _DynamicBoxDecoration implements DynamicBoxDecoration {
   const factory _DynamicBoxDecoration(
       {final String? color,
+      final double? opacity,
       final BlendMode? backgroundBlendMode,
       final List<DynamicBoxShadow?>? boxShadow,
       final BoxShape shape,
@@ -362,6 +381,8 @@ abstract class _DynamicBoxDecoration implements DynamicBoxDecoration {
 
   @override
   String? get color;
+  @override
+  double? get opacity;
   @override
   BlendMode? get backgroundBlendMode;
   @override
