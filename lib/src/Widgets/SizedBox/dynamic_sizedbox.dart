@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_dynamic_ui/src/Utils/button_utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dynamic_sizedbox.freezed.dart';

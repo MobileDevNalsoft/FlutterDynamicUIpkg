@@ -5,9 +5,11 @@ import 'package:flutter_dynamic_ui/src/Parsers/dynamic_appbar_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_bottomNavigationBar.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_card_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_center_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_checkBox_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_circleAvatar_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_column_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_container_parser.dart';
+import 'package:flutter_dynamic_ui/src/Parsers/dynamic_gap_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_iconButton_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_listTile_parser.dart';
 import 'package:flutter_dynamic_ui/src/Parsers/dynamic_listView_parser.dart';
@@ -61,7 +63,9 @@ class JsonToWidget {
     const DynamicTabBarParser(),
     const DynamicBottomNavigationBarParser(),
     const DynamicSafeAreaParser(),
-    const DynamicTransfromParser()
+    const DynamicTransfromParser(),
+    const DynamicGapParser(),
+    const DynamicCheckBoxParser()
   ];
 
   static Future<void> initialize() async {

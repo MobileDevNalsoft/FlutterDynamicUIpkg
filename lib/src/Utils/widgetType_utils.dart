@@ -32,5 +32,7 @@ enum WidgetType {
   bottomNavigationBar,
   safeArea,
   transform,
-  floatingActionButton
+  floatingActionButton,
+  gap,
+  checkBox
 }
